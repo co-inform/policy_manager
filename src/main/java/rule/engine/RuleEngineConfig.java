@@ -10,6 +10,7 @@ import java.util.Properties;
 public class Config extends Properties {
 
     public String rulePath;
+    public String demoRulePath;
 
     public Config(final String configPath) {
         try {
@@ -77,6 +78,13 @@ public class Config extends Properties {
      */
     public String getRulePath() {
         return this.rulePath;
+    }
+
+    /**
+     * @return path to the rule file for demo
+     */
+    public String getDemoRulePath() {
+        return this.demoRulePath;
     }
 
 
