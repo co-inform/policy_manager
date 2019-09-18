@@ -1,6 +1,5 @@
 package demo;
 
-import javafx.geometry.Pos;
 import model.PostProperties;
 import rule.engine.Callback;
 import rule.engine.JEasyRuleEngine;

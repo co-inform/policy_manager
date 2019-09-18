@@ -8,7 +8,13 @@ import rule.engine.Callback;
 public class Plugin implements Callback {
 
     public void blur(){
-        System.out.println("PostProperties is blurred.");
+        System.out.println("Post is blurred.");
+    }
+
+    public void showAnalysis(String key, float score) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(key).append(" is ").append(score);
+        System.out.println(builder.toString());
     }
 
 }

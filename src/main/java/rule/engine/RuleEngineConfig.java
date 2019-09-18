@@ -4,13 +4,19 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.util.Properties;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class RuleEngineConfig extends Properties {
 
+    private final String THRESHOLD_PREFIX = "threshold_";
+
     public String rulePath;
-    public String demoRulePath;
+
+    public RuleEngineConfig(){
+
+    }
 
     public RuleEngineConfig(final String configPath) {
         try {
@@ -80,11 +86,10 @@ public class RuleEngineConfig extends Properties {
         return this.rulePath;
     }
 
-    /**
-     * @return path to the rule file for demo
-     */
-    public String getDemoRulePath() {
-        return this.demoRulePath;
+    public Map<String, Object> getThresholds(){
+        return entrySet().stream()
+                .filter(s -> s.getKey().toString().startsWith(THRESHOLD_PREFIX))
+                .collect(Collectors.toMap(e -> String.valueOf(e.getKey()), e -> e.getValue()));
     }
 
 

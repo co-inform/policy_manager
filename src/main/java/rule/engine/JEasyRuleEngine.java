@@ -22,6 +22,9 @@ public class JEasyRuleEngine implements RuleEngine {
 
     private Rules rules;
 
+    private Map<String, Object> thresholds;
+
+
     /**
      * Creates a new JEasy-based rule engine instance, using a given configuration.
      *
@@ -31,6 +34,7 @@ public class JEasyRuleEngine implements RuleEngine {
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
         try {
             rules = ruleFactory.createRules(new FileReader(config.getRulePath()));
+            thresholds = config.getThresholds();
         } catch (IOException e) {
             throw new IllegalArgumentException("Failed to load rule file!", e);
         } catch (Exception e) {
@@ -48,6 +52,10 @@ public class JEasyRuleEngine implements RuleEngine {
         }
         // populate the callback object to the rules
         jProperties.put("callback", callback);
+        // add thresholds of modules
+        for (Map.Entry<String, Object> entry : thresholds.entrySet()) {
+            jProperties.put(entry.getKey(), entry.getValue());
+        }
         // use the JEasy engine to evaluate rules on given properties
         engine.fire(this.rules, jProperties);
     }

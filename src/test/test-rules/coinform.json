@@ -1,11 +1,42 @@
 [
-  {
-    "name": "marking_policy_blurring_test",
-    "description": "when the content has similarity score, blur the whole post.",
-    "priority": 1,
-    "condition": "similarity == 0.5f",
-    "actions": [
-      "callback.blur();"
-    ]
-  }
+      {
+        "name": "similarity_rule",
+        "description": "similarity above threshold",
+        "condition": "similarity >= threshold_similarity",
+        "actions": [
+          "callback.showAnalysis(\"similarity\", similarity);"
+        ]
+      },
+      {
+        "name": "semantic_rule",
+        "description": "semantic above threshold",
+        "condition": "semantic >= threshold_semantic",
+        "actions": [
+          "callback.showAnalysis(\"semantic\",semantic);"
+        ]
+      },
+      {
+        "name": "stance_rule",
+        "description": "stance above threshold",
+        "condition": "stance >= threshold_stance",
+        "actions": [
+          "callback.showAnalysis(\"stance\",stance);"
+        ]
+      },
+      {
+        "name": "veracity_rule",
+        "description": "veracity above threshold",
+        "condition": "veracity >= threshold_veracity",
+        "actions": [
+          "callback.showAnalysis(\"veracity\",veracity);"
+        ]
+      },
+      {
+        "name": "credibility_rule",
+        "description": "credibility above threshold",
+        "condition": "credibility >= threshold_credibility",
+        "actions": [
+          "callback.showAnalysis(\"credibility\",credibility);"
+        ]
+      }
 ]
