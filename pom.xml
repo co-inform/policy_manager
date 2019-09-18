@@ -27,6 +27,14 @@
             <version>${jeasy.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
     <build>
     <plugins>
@@ -37,6 +45,15 @@
         <release>11</release> <!-- This was the problem. -->
     </configuration>
     </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.0.1</version>
+            <configuration>
+                <show>public</show>
+                <nohelp>true</nohelp>
+            </configuration>
+        </plugin>
     </plugins>
     </build>
 </project>

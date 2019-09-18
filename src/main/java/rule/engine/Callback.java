@@ -1,4 +1,4 @@
-package model;
+package rule.engine;
 
 /**
  * Callback is a generic interface to react on the fact checking result from outside the engine.

@@ -6,11 +6,11 @@ import java.util.*;
  * A post has properties which are scores or metrics from different modules.
  * The post object will be handed into the @link{RuleEngine rule engine}.
  */
-public class Post implements Iterable<Map.Entry<String, Object>>{
+public class PostProperties implements Iterable<Map.Entry<String, Object>>{
 
         private Map<String, Object> properties = new HashMap();
 
-        public Post() {
+        public PostProperties() {
         }
 
         public Object put(String name, Object property) {

@@ -1,4 +1,4 @@
-package utils;
+package rule.engine;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -7,12 +7,12 @@ import java.lang.reflect.Field;
 import java.util.Properties;
 
 
-public class Config extends Properties {
+public class RuleEngineConfig extends Properties {
 
     public String rulePath;
     public String demoRulePath;
 
-    public Config(final String configPath) {
+    public RuleEngineConfig(final String configPath) {
         try {
             BufferedInputStream stream = new BufferedInputStream(
                     new FileInputStream(configPath));

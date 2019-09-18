@@ -3,11 +3,9 @@
     "name": "marking_policy_blurring_test",
     "description": "when the content has similarity score, blur the whole post.",
     "priority": 1,
-    "condition": "post.getSimilarity() == 0.5f",
+    "condition": "similarity == 0.5f",
     "actions": [
-      "plugin.blur();"
+      "callback.blur();"
     ]
   }
 ]
-
-
