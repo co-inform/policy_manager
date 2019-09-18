@@ -10,6 +10,7 @@
 
     <properties>
         <jeasy.version>3.3.0</jeasy.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
