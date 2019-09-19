@@ -4,11 +4,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RuleEngineConfigTest {
@@ -24,7 +22,6 @@ public class RuleEngineConfigTest {
         props.put("dummyProperty", "dummy value");
 
         ruleEngineConfig.putAll(props);
-
 
     }
 

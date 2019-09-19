@@ -1,11 +1,13 @@
 package rule.engine;
 
+import model.ModelProperties;
 import model.PostProperties;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.mvel.MVELRuleFactory;
 import org.jeasy.rules.support.JsonRuleDefinitionReader;
+import utils.Vocabulary;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,14 +46,14 @@ public class JEasyRuleEngine implements RuleEngine {
     }
 
     @Override
-    public void check(PostProperties properties, Callback callback) {
+    public void check(ModelProperties properties, Callback callback) {
         // copy properties to JEasy facts object
         Facts jProperties = new Facts();
         for (Map.Entry<String, Object> entry : properties.asMap().entrySet()) {
             jProperties.put(entry.getKey(), entry.getValue());
         }
         // populate the callback object to the rules
-        jProperties.put("callback", callback);
+        jProperties.put(Vocabulary.CALLBACK, callback);
         // add thresholds of modules
         for (Map.Entry<String, Object> entry : thresholds.entrySet()) {
             jProperties.put(entry.getKey(), entry.getValue());

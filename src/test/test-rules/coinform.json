@@ -1,42 +1,104 @@
 [
-      {
-        "name": "similarity_rule",
-        "description": "similarity above threshold",
-        "condition": "similarity >= threshold_similarity",
-        "actions": [
-          "callback.showAnalysis(\"similarity\", similarity);"
-        ]
-      },
-      {
-        "name": "semantic_rule",
-        "description": "semantic above threshold",
-        "condition": "semantic >= threshold_semantic",
-        "actions": [
-          "callback.showAnalysis(\"semantic\",semantic);"
-        ]
-      },
-      {
-        "name": "stance_rule",
-        "description": "stance above threshold",
-        "condition": "stance >= threshold_stance",
-        "actions": [
-          "callback.showAnalysis(\"stance\",stance);"
-        ]
-      },
-      {
-        "name": "veracity_rule",
-        "description": "veracity above threshold",
-        "condition": "veracity >= threshold_veracity",
-        "actions": [
-          "callback.showAnalysis(\"veracity\",veracity);"
-        ]
-      },
-      {
-        "name": "credibility_rule",
-        "description": "credibility above threshold",
-        "condition": "credibility >= threshold_credibility",
-        "actions": [
-          "callback.showAnalysis(\"credibility\",credibility);"
-        ]
-      }
+  {
+    "name": "flagging_similarity_rule",
+    "description": "similarity above threshold",
+    "condition": "similarity >= threshold_similarity",
+    "actions": [
+      "callback.showAnalysis(\"similarity\", similarity);",
+      "critical_score_count = critical_score_count + 1;",
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);"
+    ]
+  },
+  {
+    "name": "flagging_semantic_rule",
+    "description": "semantic above threshold",
+    "condition": "semantic >= threshold_semantic",
+    "actions": [
+      "callback.showAnalysis(\"semantic\",semantic);",
+      "critical_score_count = critical_score_count + 1;",
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);"
+    ]
+  },
+  {
+    "name": "flagging_stance_rule",
+    "description": "stance above threshold",
+    "condition": "stance >= threshold_stance",
+    "actions": [
+      "callback.showAnalysis(\"stance\",stance);",
+      "critical_score_count = critical_score_count + 1;",
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);"
+    ]
+  },
+  {
+    "name": "flagging_veracity_rule",
+    "description": "veracity above threshold",
+    "condition": "veracity >= threshold_veracity",
+    "actions": [
+      "callback.showAnalysis(\"veracity\",veracity);",
+      "critical_score_count = critical_score_count + 1;",
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);"
+    ]
+  },
+  {
+    "name": "flagging_credibility_rule",
+    "description": "credibility above threshold",
+    "condition": "credibility >= threshold_credibility",
+    "actions": [
+      "callback.showAnalysis(\"credibility\",credibility);",
+      "critical_score_count = critical_score_count + 1;",
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);"
+    ]
+  },
+  {
+    "name": "marking_policy_blurring_post",
+    "description": "marking policy: blurring the post",
+    "condition": "critical_score_count >= threshold_num_critical_scores",
+    "actions": [
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+      "callback.blur(postId, threshold_blur_percentage);"
+    ]
+  },
+  {
+    "name": "marking_policy_blurring_retweet_button",
+    "description": "marking policy: blurring the retweet button",
+    "condition": "critical_score_count >= threshold_num_critical_scores",
+    "actions": [
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+      "callback.place(postId,\"retweet_button\" );"
+    ]
+  },
+  {
+    "name": "marking_policy_removing_post",
+    "description": "marking policy: remove misinformative post",
+    "condition": "critical_score_count >= threshold_num_critical_scores",
+    "actions": [
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+      "callback.remove(postId);"
+    ]
+  },
+  {
+    "name":"marking_policy_putting_a_visual_stop_on_top",
+    "description":"marking policy: placing a stop sign in order to warn the user",
+    "condition":"critical_score_count >= threshold_num_critical_scores",
+    "actions":[
+      "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+      "callback.place(postId,\"stop_sign\" );"
+    ]
+  },
+  {
+    "name": "user_management_spammer_detection",
+    "description": "user management policy: user management policy protects the system from spammer users. ",
+    "condition": "userGroup.equals(\"normal\") && num_flag >= threshold_num_flagging_post && num_evidence <= threshold_num_evidence_post",
+    "actions": [
+      "userGroup = \"spammer\";"
+    ]
+  },
+  {
+    "name": "user_management_spammer_permission",
+    "description": "user management policy: user management policy protects the system from spammer users. ",
+    "condition": "userGroup.equals(\"spammer\")",
+    "actions": [
+      "callback.restrict(userId, \"tagging\");"
+    ]
+  }
 ]

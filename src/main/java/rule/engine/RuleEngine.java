@@ -1,7 +1,6 @@
 package rule.engine;
 
-import model.PostProperties;
-import org.jeasy.rules.api.Facts;
+import model.ModelProperties;
 
 /**
  * A rule engine checks the properties of a post based on a number of rules.
@@ -22,5 +21,5 @@ public interface RuleEngine {
      * @param properties properties to be checked
      * @param callback callback object with methods invoked by rule actions
      */
-    void check(PostProperties properties, Callback callback);
+    void check(ModelProperties properties, Callback callback);
 }

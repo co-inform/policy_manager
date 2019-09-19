@@ -5,6 +5,7 @@ import rule.engine.Callback;
 import rule.engine.JEasyRuleEngine;
 import rule.engine.RuleEngineFactory;
 import rule.engine.RuleEngineConfig;
+import utils.Vocabulary;
 
 import java.util.HashMap;
 
@@ -24,6 +25,9 @@ public class JEasyRuleEngDemo {
     public static HashMap dummyRequest(){
         HashMap<String, Object> dummyContent = new HashMap<String, Object>();
         dummyContent.put("similarity",0.5f);
+        dummyContent.put("veracity",0.5f);
+        dummyContent.put("stance",0.5f);
+        dummyContent.put("postId",1235);
         return dummyContent;
     }
 
