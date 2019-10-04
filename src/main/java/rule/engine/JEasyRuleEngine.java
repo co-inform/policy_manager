@@ -1,5 +1,7 @@
 package rule.engine;
 
+import com.google.common.io.Resources;
+import lombok.extern.slf4j.Slf4j;
 import model.ModelProperties;
 import model.PostProperties;
 import org.jeasy.rules.api.Facts;
@@ -11,6 +13,7 @@ import utils.Vocabulary;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Map;
 
 /**
@@ -18,6 +21,7 @@ import java.util.Map;
  *
  * @author Ipek Baris
  */
+@Slf4j
 public class JEasyRuleEngine implements RuleEngine {
 
     private DefaultRulesEngine engine = new DefaultRulesEngine();
@@ -35,7 +39,8 @@ public class JEasyRuleEngine implements RuleEngine {
     JEasyRuleEngine(RuleEngineConfig config) {
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
         try {
-            rules = ruleFactory.createRules(new FileReader(config.getRulePath()));
+            URL ruleURL = Resources.getResource(config.getRulePath());
+            rules = ruleFactory.createRules(new FileReader(ruleURL.getPath()));
             thresholds = config.getThresholds();
         } catch (IOException e) {
             throw new IllegalArgumentException("Failed to load rule file!", e);
