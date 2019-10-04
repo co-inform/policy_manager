@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -18,10 +19,9 @@ public class RuleEngineConfig extends Properties {
 
     }
 
-    public RuleEngineConfig(final String configPath) {
+    public RuleEngineConfig(final URL configPath) {
         try {
-            BufferedInputStream stream = new BufferedInputStream(
-                    new FileInputStream(configPath));
+            BufferedInputStream stream = new BufferedInputStream( configPath.openStream());
             this.load(stream);
             stream.close();
         } catch (IOException e) {

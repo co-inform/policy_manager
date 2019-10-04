@@ -1,3 +1,4 @@
+import com.google.common.io.Resources;
 import demo.Plugin;
 import demo.SystemResponse;
 import model.CoInformUserProperties;
@@ -30,7 +31,7 @@ public class UserPolicyTest {
     }
 
     public static void main(String[] args) {
-        RuleEngineConfig config = new RuleEngineConfig("src/test/resources/config/config.properties");
+        RuleEngineConfig config = new RuleEngineConfig(Resources.getResource("config/config.properties"));
         Callback systemResponse = new SystemResponse();
 
         try {
