@@ -11,8 +11,10 @@ import org.jeasy.rules.mvel.MVELRuleFactory;
 import org.jeasy.rules.support.JsonRuleDefinitionReader;
 import utils.Vocabulary;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Map;
 
@@ -40,7 +42,7 @@ public class JEasyRuleEngine implements RuleEngine {
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
         try {
             URL ruleURL = Resources.getResource(config.getRulePath());
-            rules = ruleFactory.createRules(new FileReader(ruleURL.getPath()));
+            ruleFactory.createRules(new BufferedReader(new InputStreamReader(ruleURL.openStream())));
             thresholds = config.getThresholds();
         } catch (IOException e) {
             throw new IllegalArgumentException("Failed to load rule file!", e);
