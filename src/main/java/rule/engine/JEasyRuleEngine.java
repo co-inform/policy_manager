@@ -1,6 +1,7 @@
 package rule.engine;
 
 import com.google.common.io.Resources;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import model.ModelProperties;
 import model.PostProperties;
@@ -38,7 +39,7 @@ public class JEasyRuleEngine implements RuleEngine {
      *
      * @param config rule engine configuration
      */
-    JEasyRuleEngine(RuleEngineConfig config) {
+    JEasyRuleEngine(@NonNull RuleEngineConfig config) {
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
         try {
             URL ruleURL = Resources.getResource(config.getRulePath());
