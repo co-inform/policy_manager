@@ -10,7 +10,7 @@ import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.mvel.MVELRuleFactory;
 import org.jeasy.rules.support.JsonRuleDefinitionReader;
-import utils.Vocabulary;
+import utils.Vocabulary;	
 
 import java.io.BufferedReader;
 import java.io.FileReader;
