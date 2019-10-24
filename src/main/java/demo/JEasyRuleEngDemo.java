@@ -1,5 +1,6 @@
 package demo;
 
+import com.google.common.io.Resources;
 import model.PostProperties;
 import rule.engine.Callback;
 import rule.engine.JEasyRuleEngine;
@@ -39,7 +40,7 @@ public class JEasyRuleEngDemo {
 
     // TODO replace log configuration instead of sysout
     public static void main(String[] args) {
-        RuleEngineConfig config = new RuleEngineConfig("src/test/resources/config/config.properties");
+        RuleEngineConfig config = new RuleEngineConfig(Resources.getResource("config/config.properties"));
         Callback plugin = new Plugin();
 
         try {
