@@ -1,4 +1,4 @@
-[{
+{
   "name": "not_verifiable_post",
   "description": "checks the post and flags as credible",
   "condition": "post.veracity_unverified > 0.6 && post.veracity_stance_comment > 0.5 && post.veracity_stance_support > 0.3 && post.veracity_stance_support < 0.5 && post.veracity_stance_deny > 0.3 && post.veracity_stance_deny < 0.5 post.misinfome_credibility_confidence < 0.5",
@@ -6,4 +6,3 @@
     " post.final_credibility = \"Not verifiable\";"
   ]
 }
-]
