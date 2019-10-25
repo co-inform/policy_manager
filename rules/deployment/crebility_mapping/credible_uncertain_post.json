@@ -1,0 +1,8 @@
+ {
+  "name": "credible_uncertain_post",
+  "description": "checks the post and flags as credible uncertain",
+  "condition": "post.veracity_unverified > 0.5 && post.veracity_stance_support < 0.8 && post.veracity_stance_comment >0.5 && post.misinfome_credibility_value > -0.33 && post.misinfome_credibility_value <= 0.33 && post.misinfome_credibility_confidence > 0.5",
+  "actions": [
+    " post.final_credibility = \"credible uncertain\";"
+  ]
+}
