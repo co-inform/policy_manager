@@ -1,8 +1,8 @@
  {
   "name": "credible_uncertain_post",
   "description": "checks the post and flags as credible uncertain",
-  "condition": "post.avg_stance_support > 0.3 && post.avg_stance_support < 0.4 && avg_stance_query < 0.2 && avg_stance_deny < 0.2 && avg_stance_comment >0.4 && post.misinfome_credibility_value > -0.33 && post.misinfome_credibility_value <= 0.33 && post.misinfome_credibility_confidence > 0.5",
+  "condition": "avg_stance_support > 0.3 && avg_stance_support < 0.4 && avg_stance_query < 0.4 && avg_stance_deny < 0.2 && avg_stance_comment >0.5 && post.misinfome_credibility_value > -0.33 && misinfome_credibility_value <= 0.33 && misinfome_credibility_confidence > 0.5",
   "actions": [
-    " post.final_credibility = \"credible uncertain\";"
+    "final_credibility = \"credible uncertain\";"
   ]
 }
