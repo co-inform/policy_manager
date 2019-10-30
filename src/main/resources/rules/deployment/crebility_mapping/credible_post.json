@@ -1,7 +1,7 @@
 {
   "name": "credible_post",
   "description": "checks the post and flags as credible",
-  "condition": "post.avg_stance_comment > 0.8 && post.avg_stance_support > 0.4 && post.avg_stance_deny < 0.1 && post.avg_stance_query < 0.1 && post.misinfo_credibility_value > 0.66 && post.misinfo_credibility_confidence > 0.5",
+  "condition": "post.avg_stance_comment > 0.4 && post.avg_stance_query < 0.2 && post.avg_stance_deny < 0.2 && post.avg_stance_comment > 0.4 && post.misinfo_credibility_value > 0.66 && post.misinfo_credibility_confidence > 0.5",
   "actions": [
     " post.final_credibility = \"credible\";"
   ]
