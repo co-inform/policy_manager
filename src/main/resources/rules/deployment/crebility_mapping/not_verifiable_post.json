@@ -1,8 +1,8 @@
 {
   "name": "not_verifiable_post",
   "description": "checks the post and flags as not verifiable",
-  "condition": "post.veracity_unverified > 0.6 && post.veracity_stance_comment > 0.5 && post.veracity_stance_support > 0.3 && post.veracity_stance_support < 0.5 && post.veracity_stance_deny > 0.3 && post.veracity_stance_deny < 0.5 post.misinfome_credibility_confidence < 0.5",
+  "condition": "avg_stance_comment > 0.5 && avg_stance_support < 0.2 && post.veracity_stance_support < 0.5 && avg_stance_deny > 0.4 && avg_stance_query > 0.4 post.misinfome_credibility_confidence < 0.5",
   "actions": [
-    " post.final_credibility = \"Not verifiable\";"
+    "final_credibility = \"Not verifiable\";"
   ]
 }
