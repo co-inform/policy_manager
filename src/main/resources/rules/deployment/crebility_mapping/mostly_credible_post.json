@@ -1,6 +1,6 @@
 {
   "name": "mostly_credible_post",
   "description": "checks the post and flags as mostly credible",
-  "condition": "post.veracity_true > 0.5 && misinfome_credibility_value > 0.33 && misinfome_credibility_value <= 0.66 && misinfome_crebility_confidence > 0.5",
+  "condition": "avg_stance_support > 0.3 && avg_stance_support < 0.4 && avg_stance_query < 0.2 && avg_stance_deny < 0.2 && avg_stance_comment >0.4 && misinfome_credibility_value > 0.33 && misinfome_credibility_value <= 0.66 && misinfome_crebility_confidence > 0.5",
   "actions": ["post.final_credibility = \"mostly credible\";"]
 }
