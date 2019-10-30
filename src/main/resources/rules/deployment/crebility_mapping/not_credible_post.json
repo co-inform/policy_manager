@@ -1,8 +1,8 @@
 {
   "name": "not-credible_post",
   "description": "checks the post and flags as not credible",
-  "condition": "post.veracity_false > 0.5 && post.veracity_stance_support < 0.8 && post.veracity_stance_comment > 0.5 && post.misinfo_credibility_value < -0.66 && post.misinfo_credibility_confidence > 0.5",
+  "condition": "avg_stance_support < 0.3 && avg_stance_comment > 0.6 && avg_stance_query <0.2 && avg_stance_deny <0.1 && misinfo_credibility_value < -0.66 && misinfo_credibility_confidence > 0.5",
   "actions": [
-    " post.final_credibility = \"Not credible\";"
+    "final_credibility = \"not credible\";"
   ]
 }
