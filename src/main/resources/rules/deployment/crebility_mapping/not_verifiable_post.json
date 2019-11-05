@@ -3,6 +3,6 @@
   "description": "checks the post and flags as not verifiable",
   "condition": "avg_stance_comment > 0.5 && avg_stance_support < 0.2 && post.veracity_stance_support < 0.5 && avg_stance_deny > 0.4 && avg_stance_query > 0.4 post.misinfome_credibility_confidence < 0.5",
   "actions": [
-    "final_credibility = \"not verifiable\";"
+    "final_credibility = \"Not Verifiable\";"
   ]
 }
