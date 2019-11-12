@@ -3,12 +3,14 @@ package rule.engine;
 import com.google.common.io.Resources;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import model.Credibility;
 import model.ModelProperties;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.api.Rules;
 import org.jeasy.rules.mvel.MVELRuleFactory;
 import org.jeasy.rules.support.JsonRuleDefinitionReader;
+import org.mvel2.ParserContext;
 import utils.Vocabulary;
 
 import java.io.BufferedReader;
@@ -42,16 +44,19 @@ public class JEasyRuleEngine implements RuleEngine {
     JEasyRuleEngine(@NonNull RuleEngineConfig config) throws IllegalArgumentException{
         rules = new Rules();
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
+        ParserContext parserContext = new ParserContext();
+        parserContext.addImport(Credibility.class);
+        parserContext.addPackageImport("java.util.Collections");
         Arrays.stream(config.getRulePaths())
                 .map(Resources::getResource)
-                .forEach(url -> readRulesFromFile(ruleFactory, url));
+                .forEach(url -> readRulesFromFile(ruleFactory, parserContext, url));
         thresholds = config.getThresholds();
     }
 
-    private void readRulesFromFile(MVELRuleFactory ruleFactory,  URL filePath) throws IllegalArgumentException {
+    private void readRulesFromFile(MVELRuleFactory ruleFactory, ParserContext parserContext,  URL filePath) throws IllegalArgumentException {
         try {
             ruleFactory
-                .createRules(new BufferedReader(new InputStreamReader(filePath.openStream())))
+                .createRules(new BufferedReader(new InputStreamReader(filePath.openStream())), parserContext)
                 .iterator()
                 .forEachRemaining(rule -> this.rules.register(rule));
         } catch (IOException e) {
