@@ -1,7 +1,6 @@
 package rule.engine;
 
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;

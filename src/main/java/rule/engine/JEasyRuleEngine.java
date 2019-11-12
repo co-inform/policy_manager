@@ -1,13 +1,9 @@
 package rule.engine;
 
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
 import com.google.common.io.Resources;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import model.ModelProperties;
-import model.PostProperties;
-import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.api.Rules;
@@ -16,11 +12,9 @@ import org.jeasy.rules.support.JsonRuleDefinitionReader;
 import utils.Vocabulary;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
