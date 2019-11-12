@@ -1,10 +1,13 @@
 package rule.engine;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
 import com.google.common.io.Resources;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import model.ModelProperties;
 import model.PostProperties;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.core.DefaultRulesEngine;
 import org.jeasy.rules.api.Rules;
@@ -17,6 +20,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 /**
@@ -39,19 +44,29 @@ public class JEasyRuleEngine implements RuleEngine {
      *
      * @param config rule engine configuration
      */
-    JEasyRuleEngine(@NonNull RuleEngineConfig config) {
+    @SuppressWarnings("UnstableApiUsage")
+    JEasyRuleEngine(@NonNull RuleEngineConfig config) throws IllegalArgumentException{
+        rules = new Rules();
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
+        Arrays.stream(config.getRulePaths())
+                .map(Resources::getResource)
+                .forEach(url -> readRulesFromFile(ruleFactory, url));
+        thresholds = config.getThresholds();
+    }
+
+    private void readRulesFromFile(MVELRuleFactory ruleFactory,  URL filePath) throws IllegalArgumentException {
         try {
-            URL ruleURL = Resources.getResource(config.getRulePath());
-            ruleFactory.createRules(new BufferedReader(new InputStreamReader(ruleURL.openStream())));
-            thresholds = config.getThresholds();
+            ruleFactory
+                .createRules(new BufferedReader(new InputStreamReader(filePath.openStream())))
+                .iterator()
+                .forEachRemaining(rule -> this.rules.register(rule));
         } catch (IOException e) {
-            throw new IllegalArgumentException("Failed to load rule file!", e);
+            throw new IllegalArgumentException("Failed to load rule file!, "+filePath.toString()+ ", "+e.getMessage(), e);
         } catch (Exception e) {
             // TODO this is a bad API of MVELRuleFactory, when does it throw exceptions anyway?
             throw new IllegalStateException("Failed to create rule factory!", e);
         }
-    }
+}
 
     @Override
     public void check(ModelProperties properties, Callback callback) {
