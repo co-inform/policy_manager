@@ -1,7 +1,6 @@
 package rule.engine;
 
 import java.io.BufferedInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.net.URL;
@@ -13,7 +12,7 @@ public class RuleEngineConfig extends Properties {
 
     private final String THRESHOLD_PREFIX = "threshold_";
 
-    public String rulePath;
+    public String[] rulePaths;
 
     public RuleEngineConfig(){
 
@@ -82,8 +81,8 @@ public class RuleEngineConfig extends Properties {
     /**
      * @return path to the rule file
      */
-    public String getRulePath() {
-        return this.rulePath;
+    public String[] getRulePaths() {
+        return this.rulePaths;
     }
 
     public Map<String, Object> getThresholds(){
