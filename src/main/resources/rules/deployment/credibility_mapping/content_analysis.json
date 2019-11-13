@@ -1,0 +1,47 @@
+[
+  {
+    "name": "not_verifiable_post_content_analysis",
+    "description": "checks the post and flags as not verifiable",
+    "priority": 1,
+    "condition": "avg_stance_comment > 0.5 && avg_stance_support < 0.2 && avg_stance_deny > 0.4 && avg_stance_query > 0.4",
+    "actions": [
+      "module_credibility.put(\"content_analysis\", Credibility.not_verifiable_post);"
+    ]
+  },
+  {
+    "name": "not-credible_post_content_analysis",
+    "description": "checks the post and flags as not credible",
+    "priority": 2,
+    "condition": "avg_stance_support < 0.3 && avg_stance_comment > 0.6 && avg_stance_query <0.2 && avg_stance_deny <0.1",
+    "actions": [
+      "module_credibility.put(\"content_analysis\", Credibility.not_credible_post);"
+    ]
+  },
+  {
+    "name": "credible_uncertain_post_content_analysis",
+    "description": "checks the post and flags as credible uncertain",
+    "priority": 3,
+    "condition": "avg_stance_support > 0.3 && avg_stance_support < 0.4 && avg_stance_query < 0.4 && avg_stance_deny < 0.2 && avg_stance_comment >0.5",
+    "actions": [
+      "module_credibility.put(\"content_analysis\", Credibility.credible_uncertain_post);"
+    ]
+  },
+  {
+    "name": "mostly_credible_post_content_analysis",
+    "description": "checks the post and flags as mostly credible",
+    "priority": 4,
+    "condition": "avg_stance_support > 0.3 && avg_stance_support < 0.4 && avg_stance_query < 0.2 && avg_stance_deny < 0.2 && avg_stance_comment >0.4",
+    "actions": [
+      "module_credibility.put(\"content_analysis\", Credibility.mostly_credible_post);"
+    ]
+  },
+  {
+    "name": "credible_post_content_analysis",
+    "description": "checks the post and flags as credible",
+    "priority": 5,
+    "condition": "avg_stance_comment > 0.4 && avg_stance_support > 0.4 && avg_stance_deny < 0.1 && avg_stance_query < 0.1",
+    "actions": [
+      "module_credibility.put(\"content_analysis\", Credibility.credible_post);"
+    ]
+  }
+]
