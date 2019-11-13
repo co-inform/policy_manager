@@ -1,11 +1,11 @@
 [
   {
-    "name": "accumelate_module_evaluations",
+    "name": "aggregate_module_evaluations",
     "description": "Takes the results from the module responses and set a final credibility",
     "priority": 10,
     "condition": "true",
     "actions": [
-      "it = callback.getModuleCredibility().values().iterator(); if(it.hasNext()) { callback.setFinalCredibility(it.next()); }"
+      "callback.setFinalCredibility(callback.averageCredibility(callback.getModuleCredibility().values()));"
     ]
   }
 ]
