@@ -1,0 +1,8 @@
+{
+  "name": "not_verifiable_post",
+  "description": "checks the post and flags as not verifiable",
+  "condition": "post.misinfome_credibility_confidence < 0.5",
+  "actions": [
+    "final_credibility = \"Not Verifiable\";"
+  ]
+}
