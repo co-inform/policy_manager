@@ -5,5 +5,10 @@ public enum Credibility {
     not_credible_post,
     credible_uncertain_post,
     mostly_credible_post,
-    credible_post
+    credible_post;
+
+    @Override
+    public String toString() {
+        return this.name().replaceAll("_", " ");
+    }
 }
