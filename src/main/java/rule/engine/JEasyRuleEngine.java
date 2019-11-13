@@ -46,7 +46,9 @@ public class JEasyRuleEngine implements RuleEngine {
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
         ParserContext parserContext = new ParserContext();
         parserContext.addImport(Credibility.class);
+        parserContext.addImport(Callback.class);
         parserContext.addPackageImport("java.util.Collections");
+        parserContext.addPackageImport("java.util.Map");
         Arrays.stream(config.getRulePaths())
                 .map(Resources::getResource)
                 .forEach(url -> readRulesFromFile(ruleFactory, parserContext, url));

@@ -5,7 +5,7 @@
     "priority": 1,
     "condition": "misinfome_credibility_confidence < 0.5",
     "actions": [
-      "module_credibility.put(\"misinfome\", Credibility.not_verifiable_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.not_verifiable_post);"
     ]
   },
   {
@@ -14,7 +14,7 @@
     "priority": 2,
     "condition": "misinfome_credibility_value < -0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "module_credibility.put(\"misinfome\", Credibility.not_credible_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.not_credible_post);"
     ]
   },
   {
@@ -23,16 +23,16 @@
     "priority": 3,
     "condition": "misinfome_credibility_value > -0.33 && misinfome_credibility_value <= 0.33 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "module_credibility.put(\"misinfome\", Credibility.credible_uncertain_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible_uncertain_post);"
     ]
   },
   {
     "name": "mostly_credible_post",
     "description": "checks the post and flags as mostly credible",
     "priority": 4,
-    "condition": "misinfome_credibility_value <= 0.66 && misinfome_crebility_confidence > 0.5",
+    "condition": "misinfome_credibility_value <= 0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "module_credibility.put(\"misinfome\", Credibility.mostly_credible_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_credible_post);"
     ]
   },
   {
@@ -41,7 +41,7 @@
     "priority": 5,
     "condition": "misinfome_credibility_value > 0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "module_credibility.put(\"misinfome\", Credibility.credible_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible_post);"
     ]
   }
 ]
