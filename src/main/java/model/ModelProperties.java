@@ -1,13 +1,18 @@
 package model;
 
+
 import java.util.*;
 
 public class ModelProperties implements Iterable<Map.Entry<String, Object>> {
 
-    protected Map<String, Object> properties = new HashMap();
+    private final Map<String, Object> properties;
 
     public ModelProperties(){
+        this.properties = new HashMap<>();
+    }
 
+    public ModelProperties(Map<String, Object> map) {
+        this.properties = map;
     }
 
     public Object put(String name, Object property) {

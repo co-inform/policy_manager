@@ -15,7 +15,7 @@ public class PostProperties extends ModelProperties {
 
         public PostProperties() {
             // supporting conditions checking count
-            super.properties.put(Vocabulary.CRITICAL_SCORE_COUNT, numCriticalScore);
+            super.put(Vocabulary.CRITICAL_SCORE_COUNT, numCriticalScore);
         }
 
 }

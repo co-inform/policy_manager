@@ -5,7 +5,7 @@
     "priority": 10,
     "condition": "true",
     "actions": [
-      "final_credibility = Collections.min(module_credibility.values());"
+      "it = callback.getModuleCredibility().values().iterator(); if(it.hasNext()) { callback.setFinalCredibility(it.next()); }"
     ]
   }
 ]
