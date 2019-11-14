@@ -68,6 +68,9 @@ public class JEasyRuleEngine implements RuleEngine {
         }
 }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void check(ModelProperties properties, Callback callback) {
         // copy properties to JEasy facts object
