@@ -1,0 +1,68 @@
+[
+  {
+    "name": "credible",
+    "description": "checks the post and flags as credible",
+    "priority": 2,
+    "condition": "credibility  > 0.5 && confidence > 0.7",
+    "actions": [
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_credible_post);"
+    ]
+  },
+  {
+    "name": "mostly credible_post",
+    "description": "checks the post and flags as mostly credible",
+    "priority": 3,
+    "condition": "credibility > 0.25 && credibility < 0.5 && confidence > 0.7,
+    "actions": [
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_uncertain_post);"
+    ]
+  },
+  
+  {
+    "name": "credibility_uncertain",
+    "description": "checks the post and flags as credible uncertain",
+    "priority": 3,
+    "condition": "credibility > -0.25 && credibility < 0.5 && confidence > 0.7,
+    "actions": [
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_uncertain_post);"
+    ]
+  },
+  
+  {
+    "name": "mostly credible_post",
+    "description": "checks the post and flags as mostly credible",
+    "priority": 3,
+    "condition": "credibility > 0.25 && credibility < 0.5 confidence > 0.7,
+    "actions": [
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_uncertain_post);"
+    ]
+  },
+  
+  {
+    "name": "mostly_not_credible_post",
+    "description": "checks the post and flags as mostly not credible",
+    "priority": 3,
+    "condition": "credibility > -0.25 && credibility < -0.5 && confidence > 0.7,
+    "actions": [
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_uncertain_post);"
+    ]
+  },
+  {
+    "name": "not_credible",
+    "description": "checks the post and flags as not credible",
+    "priority": 2,
+    "condition": "credibility  > -0.5 && confidence > 0.7",
+    "actions": [
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_credible_post);"
+    ]
+  },
+  {
+    "name": "not_verifiable",
+    "description": "checks the post and flags as not verifiable",
+    "priority": 2,
+    "condition": "confidence > 0.7",
+    "actions": [
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_credible_post);"
+    ]
+  },
+]
