@@ -1,5 +1,7 @@
 package rule.engine;
 
+import lombok.Getter;
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -12,7 +14,10 @@ public class RuleEngineConfig extends Properties {
 
     private final String THRESHOLD_PREFIX = "threshold_";
 
-    public String[] rulePaths;
+    @Getter
+    private String[] moduleRulePaths;
+    @Getter
+    private String[] aggregationRulePaths;
 
     public RuleEngineConfig(){
 
@@ -76,13 +81,6 @@ public class RuleEngineConfig extends Properties {
                 f.set(this, longs);
             }
         }
-    }
-
-    /**
-     * @return path to the rule file
-     */
-    public String[] getRulePaths() {
-        return this.rulePaths;
     }
 
     public Map<String, Object> getThresholds(){
