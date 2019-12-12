@@ -15,9 +15,9 @@ public class RuleEngineConfig extends Properties {
     private final String THRESHOLD_PREFIX = "threshold_";
 
     @Getter
-    private String[] moduleRulePaths;
+    public String[] moduleRulePaths;
     @Getter
-    private String[] aggregationRulePaths;
+    public String[] aggregationRulePaths;
 
     public RuleEngineConfig(){
 

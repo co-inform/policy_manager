@@ -12,6 +12,7 @@ import org.jeasy.rules.mvel.MVELRuleFactory;
 import org.jeasy.rules.support.JsonRuleDefinitionReader;
 import org.mvel2.ParserContext;
 import org.mvel2.PropertyAccessException;
+import org.mvel2.UnresolveablePropertyException;
 import utils.Vocabulary;
 
 import java.io.BufferedReader;
@@ -102,9 +103,14 @@ public class JEasyRuleEngine implements RuleEngine {
         for (Rules module: moduleRules) {
             try {
                 engine.fire(module, jProperties);
-            } catch (PropertyAccessException ex) {
+            } catch (PropertyAccessException | UnresolveablePropertyException ex) {
                 log.debug("module ruleset not able to run, error message: {}", ex.getMessage());
             }
+        }
+
+        log.debug("module labels:");
+        for (Map.Entry<String, Credibility> entry : ((PolicyEngineCallback) jProperties.get(Vocabulary.CALLBACK)).getModuleCredibility().entrySet()) {
+            log.debug("\t {}: {}", entry.getKey(), entry.getValue());
         }
 
         // Runs the aggregation rules
