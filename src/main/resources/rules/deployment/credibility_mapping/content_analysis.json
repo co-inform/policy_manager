@@ -5,7 +5,7 @@
     "priority": 1,
     "condition": "contentanalysis_avg_stance_comment > 0.5 && contentanalysis_avg_stance_support < 0.2 && contentanalysis_avg_stance_deny > 0.4 && contentanalysis_avg_stance_query > 0.4",
     "actions": [
-      "module_credibility.put(\"content_analysis\", Credibility.not_verifiable_post);"
+      "callback.getModuleCredibility.put(\"content_analysis\", Credibility.not_verifiable_post);"
     ]
   },
   {
@@ -14,7 +14,7 @@
     "priority": 2,
     "condition": "contentanalysis_avg_stance_support < 0.3 && contentanalysis_avg_stance_comment > 0.6 && contentanalysis_avg_stance_query <0.2 && contentanalysis_avg_stance_deny <0.1",
     "actions": [
-      "module_credibility.put(\"content_analysis\", Credibility.not_credible_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.not_credible_post);"
     ]
   },
   {
@@ -23,7 +23,7 @@
     "priority": 3,
     "condition": "contentanalysis_avg_stance_support > 0.3 && contentanalysis_avg_stance_support < 0.4 && contentanalysis_avg_stance_query < 0.4 && contentanalysis_avg_stance_deny < 0.2 && contentanalysis_avg_stance_comment >0.5",
     "actions": [
-      "module_credibility.put(\"content_analysis\", Credibility.credible_uncertain_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_uncertain_post);"
     ]
   },
   {
@@ -32,7 +32,7 @@
     "priority": 4,
     "condition": "contentanalysis_avg_stance_support > 0.3 && contentanalysis_avg_stance_support < 0.4 && contentanalysis_avg_stance_query < 0.2 && contentanalysis_avg_stance_deny < 0.2 && contentanalysis_avg_stance_comment >0.4",
     "actions": [
-      "module_credibility.put(\"content_analysis\", Credibility.mostly_credible_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_credible_post);"
     ]
   },
   {
@@ -41,7 +41,7 @@
     "priority": 5,
     "condition": "contentanalysis_avg_stance_comment > 0.4 && contentanalysis_avg_stance_support > 0.4 && contentanalysis_avg_stance_deny < 0.1 && contentanalysis_avg_stance_query < 0.1",
     "actions": [
-      "module_credibility.put(\"content_analysis\", Credibility.credible_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_post);"
     ]
   }
 ]
