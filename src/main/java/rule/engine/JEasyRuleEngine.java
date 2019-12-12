@@ -46,6 +46,7 @@ public class JEasyRuleEngine implements RuleEngine {
     @SuppressWarnings("UnstableApiUsage")
     JEasyRuleEngine(@NonNull RuleEngineConfig config) throws IllegalArgumentException{
         aggregationRules = new Rules();
+        moduleRules = new ArrayList<>();
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
         ParserContext parserContext = new ParserContext();
         parserContext.addImport(Credibility.class);
