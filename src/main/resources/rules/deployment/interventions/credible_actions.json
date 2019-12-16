@@ -1,0 +1,8 @@
+{
+  "name": "credible_social_translucence",
+  "description": "the system acknowledges the user for posting credible tweets",
+  "condition": "\"credible\".equals(final_credibility) && \"social_translucence\".credible_preference",
+  "actions": [
+    "callback.social_translucence();"
+  ]
+}
