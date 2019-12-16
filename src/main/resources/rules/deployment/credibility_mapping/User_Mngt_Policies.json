@@ -1,0 +1,18 @@
+[
+  {
+    "name": "user_management_spammer_detection",
+    "description": "user management policy: user management policy protects the system from spammer users. ",
+    "condition": "userGroup.equals(\"normal\") && num_flag >= threshold_num_flagging_post && num_evidence <= threshold_num_evidence_post",
+    "actions": [
+      "userGroup = \"spammer\";"
+    ]
+  },
+  {
+    "name": "user_management_spammer_permission",
+    "description": "user management policy: user management policy protects the system from spammer users. ",
+    "condition": "userGroup.equals(\"spammer\")",
+    "actions": [
+      "callback.restrict(userId, \"tagging\");"
+    ]
+  }
+]
