@@ -1,0 +1,17 @@
+[{
+  "name": "uncertain_credible_inject",
+  "description": "the system acknowledges the user for posting uncertain tweets (explainability) and tiggers inject",
+  "condition": "\"credible uncertain\".equals(final_credibility) && \"inject\".credible_preference",
+  "actions": [
+    "callback.inject();"
+  ]
+},
+{
+  "name": "uncertain_credible_inoculate",
+  "description": "the system acknowledges the user for posting uncertain credible tweets (explainability) and tiggers inoculate",
+  "condition": "\"credible uncertain\".equals(final_credibility) && \"inoculate\".credible_preference",
+  "actions": [
+    "callback.inoculate();"
+  ]
+}
+]
