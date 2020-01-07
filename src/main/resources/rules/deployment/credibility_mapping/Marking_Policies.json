@@ -1,0 +1,46 @@
+[
+  {
+ "name": "marking_policy_blurring_post",
+ "description": "marking policy: blurring the post",
+ "condition": "critical_score_count >= threshold_num_critical_scores",
+ "actions": [
+   "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+   "callback.blur(postId, threshold_blur_percentage);"
+ ]
+},
+{
+ "name": "marking_policy_blurring_retweet_button",
+ "description": "marking policy: blurring the retweet button",
+ "condition": "critical_score_count >= threshold_num_critical_scores",
+ "actions": [
+   "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+   "callback.place(postId,\"retweet_button\" );"
+ ]
+},
+{
+ "name": "marking_policy_visual_stop_sign",
+ "description": "marking policy: putting a visual stop sign",
+ "condition": "critical_score_count >= threshold_num_critical_scores",
+ "actions": [
+   "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+   "callback.place(postId, stop_sign_icon);"
+ ]
+},
+{
+ "name": "marking_policy_putting_circle_information",
+ "description": "marking policy: putting a circle information icon on the top",
+ "condition": "critical_score_count >= threshold_num_critical_scores",
+ "actions": [
+   "callback.place(postId, location = top, information_icon, explanation_button);"
+ ]
+},
+{
+ "name":"marking_policy_putting_a_visual_stop_on_top",
+ "description":"marking policy: placing a stop sign in order to warn the user",
+ "condition":"critical_score_count >= threshold_num_critical_scores",
+ "actions":[
+   "callback.showAnalysis(\"critical_score_count\", critical_score_count);",
+   "callback.place(postId,\"stop_sign\" );"
+ ]
+}
+]

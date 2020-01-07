@@ -1,0 +1,8 @@
+{
+  "name": "mostly_credible_inject",
+  "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers social translucence",
+  "condition": "\"mostly credible\".equals(final_credibility) && \"inject\".credible_preference",
+  "actions": [
+    "callback.inject();"
+  ]
+}

@@ -1,0 +1,19 @@
+[
+ {
+ "name": "reporting policy",
+ "description": "reporting policy: reporting not flagged post",
+ "condition": "post.flagged == False",
+ "actions": [
+   "callback.startWorkflowReportNotFlagging(userId,postId);"
+ ]
+},
+{
+ "name": "reporting policy",
+ "description": "reporting policy: reporting flagged post",
+ "condition": "post.flagged == True",
+ "actions": [
+   "callback.startWorkflowReportNotFlagging(userId,postId);"
+ ]
+}
+
+]
