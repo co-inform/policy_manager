@@ -1,6 +1,7 @@
 package rule.engine;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -10,14 +11,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
+@Slf4j
 public class RuleEngineConfig extends Properties {
 
     private final String THRESHOLD_PREFIX = "threshold_";
 
     @Getter
-    public String[] moduleRulePaths;
+    private String[] moduleRulePaths;
     @Getter
-    public String[] aggregationRulePaths;
+    private String[] aggregationRulePaths;
 
     public RuleEngineConfig(){
 
@@ -48,11 +50,11 @@ public class RuleEngineConfig extends Properties {
      */
     private void initialize() throws IllegalArgumentException,
             IllegalAccessException {
-        Field[] fields = this.getClass().getFields();
+        Field[] fields = this.getClass().getDeclaredFields();
         for (Field f : fields) {
+            f.setAccessible(true);
             if (this.getProperty(f.getName()) == null) {
-                System.err.print("Property '" + f.getName()
-                        + "' not defined in config file");
+                log.info("Property '{}' not defined in config file", f.getName());
             }
             if (f.getType().equals(String.class)) {
                 f.set(this, this.getProperty(f.getName()));
