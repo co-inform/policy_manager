@@ -37,7 +37,7 @@ public class UserPolicyTest {
         try {
             JEasyRuleEngine engine = (JEasyRuleEngine) RuleEngineFactory.newInstance(Vocabulary.JEASY, config);
             CoInformUserProperties facts=loadFacts(dummyRequest());
-            engine.check(facts, systemResponse);
+            //engine.check(facts, systemResponse);
 
         } catch (Exception e) {
             e.printStackTrace();

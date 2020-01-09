@@ -2,6 +2,8 @@ package rule.engine;
 
 import model.ModelProperties;
 
+import java.util.Set;
+
 /**
  * A rule engine checks the properties of a post based on a number of rules.
  * Passing a callback objects allows to react to the evaluation results.
@@ -20,6 +22,7 @@ public interface RuleEngine {
      *
      * @param properties properties to be checked
      * @param callback callback object with methods invoked by rule actions
+     * @param modules set of the names of the modules whose rules to invoke
      */
-    void check(ModelProperties properties, Callback callback);
+    void check(ModelProperties properties, Callback callback, Set<String> modules);
 }

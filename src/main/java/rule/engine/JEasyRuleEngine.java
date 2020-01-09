@@ -19,9 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
 /**
  * The JEasyRuleEngine uses the JEasy framework to evaluate rules.
@@ -34,7 +32,7 @@ public class JEasyRuleEngine implements RuleEngine {
     private DefaultRulesEngine engine = new DefaultRulesEngine();
 
     private Rules aggregationRules;
-    private ArrayList<Rules> moduleRules;
+    private Map<String, Rules> moduleRules;
 
     private Map<String, Object> thresholds;
 
@@ -47,7 +45,7 @@ public class JEasyRuleEngine implements RuleEngine {
     @SuppressWarnings("UnstableApiUsage")
     JEasyRuleEngine(@NonNull RuleEngineConfig config) throws IllegalArgumentException{
         aggregationRules = new Rules();
-        moduleRules = new ArrayList<>();
+        moduleRules = new HashMap<>();
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new JsonRuleDefinitionReader());
         ParserContext parserContext = new ParserContext();
         parserContext.addImport(Credibility.class);
@@ -56,12 +54,15 @@ public class JEasyRuleEngine implements RuleEngine {
         Arrays.stream(config.getAggregationRulePaths())
                 .map(Resources::getResource)
                 .forEach(url -> readRulesFromFile(ruleFactory, parserContext, url, aggregationRules));
-        Arrays.stream(config.getModuleRulePaths())
-                .map(Resources::getResource)
-                .forEach(url -> {
+        if (log.isDebugEnabled()) {
+            log.debug("rulePaths:");
+            config.getModuleRulePaths().forEach((key, value) -> log.debug("\t{}: {}", key, value));
+        }
+        config.getModuleRulePaths().entrySet()
+                .forEach(entry -> {
                         Rules rules = new Rules();
-                        moduleRules.add(rules);
-                        readRulesFromFile(ruleFactory, parserContext, url, rules);
+                        moduleRules.put(entry.getKey(), rules);
+                        readRulesFromFile(ruleFactory, parserContext, Resources.getResource(entry.getValue()), rules);
                 });
         thresholds = config.getThresholds();
     }
@@ -84,7 +85,7 @@ public class JEasyRuleEngine implements RuleEngine {
      * {@inheritDoc}
      */
     @Override
-    public void check(ModelProperties properties, Callback callback) {
+    public void check(ModelProperties properties, Callback callback, Set<String> modules) {
         // copy properties to JEasy facts object
         Facts jProperties = new Facts();
         for (Map.Entry<String, Object> entry : properties.asMap().entrySet()) {
@@ -100,11 +101,9 @@ public class JEasyRuleEngine implements RuleEngine {
         // use the JEasy engine to evaluate rules on given properties
 
         // Tries to run the rules for the different modules. If the module response is not available it will fail.
-        for (Rules module: moduleRules) {
-            try {
-                engine.fire(module, jProperties);
-            } catch (PropertyAccessException | UnresolveablePropertyException ex) {
-                log.debug("module ruleset not able to run, error message: {}", ex.getMessage());
+        for (Map.Entry<String, Rules> nameRulePair: moduleRules.entrySet()) {
+            if (modules.contains(nameRulePair.getKey())) {
+                engine.fire(nameRulePair.getValue(), jProperties);
             }
         }
 

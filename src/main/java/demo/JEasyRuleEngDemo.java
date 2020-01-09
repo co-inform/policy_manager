@@ -46,7 +46,7 @@ public class JEasyRuleEngDemo {
         try {
         JEasyRuleEngine engine = (JEasyRuleEngine) RuleEngineFactory.newInstance("jeasy", config);
         PostProperties facts=loadFacts(dummyRequest());
-        engine.check(facts, plugin);
+        //engine.check(facts, plugin);
 
         } catch (Exception e) {
             e.printStackTrace();
