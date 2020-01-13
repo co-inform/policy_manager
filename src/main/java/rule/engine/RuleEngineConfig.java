@@ -1,6 +1,7 @@
 package rule.engine;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
@@ -10,14 +11,15 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
+@Slf4j
 public class RuleEngineConfig extends Properties {
 
     private final String THRESHOLD_PREFIX = "threshold_";
 
     @Getter
-    public String[] moduleRulePaths;
+    private Map<String, String> moduleRulePaths;
     @Getter
-    public String[] aggregationRulePaths;
+    private String[] aggregationRulePaths;
 
     public RuleEngineConfig(){
 
@@ -48,11 +50,12 @@ public class RuleEngineConfig extends Properties {
      */
     private void initialize() throws IllegalArgumentException,
             IllegalAccessException {
-        Field[] fields = this.getClass().getFields();
+        Field[] fields = this.getClass().getDeclaredFields();
         for (Field f : fields) {
+            f.setAccessible(true);
+            log.debug("Field {} : {}", f.getName(), f.getType().getName());
             if (this.getProperty(f.getName()) == null) {
-                System.err.print("Property '" + f.getName()
-                        + "' not defined in config file");
+                log.info("Property '{}' not defined in config file", f.getName());
             }
             if (f.getType().equals(String.class)) {
                 f.set(this, this.getProperty(f.getName()));
@@ -79,6 +82,14 @@ public class RuleEngineConfig extends Properties {
                     longs[i] = Long.parseLong(tmp[i]);
                 }
                 f.set(this, longs);
+            } else if (f.getType().equals(Map.class)) {
+                String [] entries = this.getProperty(f.getName()).split(";");
+                Map<String, String> map = new HashMap<>();
+                for (String entry: entries) {
+                    String[] kvp = entry.split(":");
+                    map.put(kvp[0], kvp[1]);
+                }
+                f.set(this, map);
             }
         }
     }
