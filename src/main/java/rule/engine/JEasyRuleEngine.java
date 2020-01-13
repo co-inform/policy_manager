@@ -102,15 +102,15 @@ public class JEasyRuleEngine implements RuleEngine {
 
         // Tries to run the rules for the different modules. If the module response is not available it will fail.
         for (Map.Entry<String, Rules> nameRulePair: moduleRules.entrySet()) {
+            log.debug("rule set {}", nameRulePair.getKey());
             if (modules.contains(nameRulePair.getKey())) {
+                log.debug("running rule set {}", nameRulePair.getKey());
                 engine.fire(nameRulePair.getValue(), jProperties);
             }
         }
 
         log.debug("module labels:");
-        for (Map.Entry<String, Credibility> entry : ((PolicyEngineCallback) jProperties.get(Vocabulary.CALLBACK)).getModuleCredibility().entrySet()) {
-            log.debug("\t {}: {}", entry.getKey(), entry.getValue());
-        }
+        ((PolicyEngineCallback) jProperties.get(Vocabulary.CALLBACK)).getModuleCredibility().forEach((key, value) -> log.debug("\t {}: {}", key, value));
 
         // Runs the aggregation rules
         engine.fire(this.aggregationRules, jProperties);
