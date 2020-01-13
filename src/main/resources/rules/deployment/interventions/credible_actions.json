@@ -1,7 +1,7 @@
 {
   "name": "credible_social_translucence",
   "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers social translucence",
-  "condition": "\"credible\".equals(final_credibility) && \"social_translucence\".credible_preference",
+  "condition": "callback.getFinalCredibility() == Credibility.credible",
   "actions": [
     "callback.social_translucence();"
   ]
