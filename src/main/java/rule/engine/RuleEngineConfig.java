@@ -17,7 +17,7 @@ public class RuleEngineConfig extends Properties {
     private final String THRESHOLD_PREFIX = "threshold_";
 
     @Getter
-    private String[] moduleRulePaths;
+    private Map<String, String> moduleRulePaths;
     @Getter
     private String[] aggregationRulePaths;
 
@@ -53,6 +53,7 @@ public class RuleEngineConfig extends Properties {
         Field[] fields = this.getClass().getDeclaredFields();
         for (Field f : fields) {
             f.setAccessible(true);
+            log.debug("Field {} : {}", f.getName(), f.getType().getName());
             if (this.getProperty(f.getName()) == null) {
                 log.info("Property '{}' not defined in config file", f.getName());
             }
@@ -81,6 +82,14 @@ public class RuleEngineConfig extends Properties {
                     longs[i] = Long.parseLong(tmp[i]);
                 }
                 f.set(this, longs);
+            } else if (f.getType().equals(Map.class)) {
+                String [] entries = this.getProperty(f.getName()).split(";");
+                Map<String, String> map = new HashMap<>();
+                for (String entry: entries) {
+                    String[] kvp = entry.split(":");
+                    map.put(kvp[0], kvp[1]);
+                }
+                f.set(this, map);
             }
         }
     }
