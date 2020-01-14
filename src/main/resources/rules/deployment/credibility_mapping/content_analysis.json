@@ -3,7 +3,7 @@
     "name": "not_verifiable_post_content_analysis",
     "description": "checks the post and flags as not verifiable",
     "priority": 1,
-    "condition": "contentanalysis_avg_stance_comment > 0.5 && contentanalysis_avg_stance_support < 0.2 && contentanalysis_avg_stance_deny > 0.4 && contentanalysis_avg_stance_query > 0.4",
+    "condition": "contentanalysis_veracity_true < 0.15 && contentanalysis_veracity_unknown >= 0.50",
     "actions": [
       "callback.getModuleCredibility.put(\"content_analysis\", Credibility.not_verifiable_post);"
     ]
@@ -12,7 +12,7 @@
     "name": "not-credible_post_content_analysis",
     "description": "checks the post and flags as not credible",
     "priority": 2,
-    "condition": "contentanalysis_avg_stance_support < 0.3 && contentanalysis_avg_stance_comment > 0.6 && contentanalysis_avg_stance_query <0.2 && contentanalysis_avg_stance_deny <0.1",
+    "condition": "contentanalysis_veracity_true < 0.15 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.not_credible_post);"
     ]
@@ -21,7 +21,7 @@
     "name": "credible_uncertain_post_content_analysis",
     "description": "checks the post and flags as credible uncertain",
     "priority": 3,
-    "condition": "contentanalysis_avg_stance_support > 0.3 && contentanalysis_avg_stance_support < 0.4 && contentanalysis_avg_stance_query < 0.4 && contentanalysis_avg_stance_deny < 0.2 && contentanalysis_avg_stance_comment >0.5",
+    "condition": "contentanalysis_veracity_true < 0.20 && contentanalysis_veracity_true >= 0.15 && contentanalysis_veracity_unknown >= 0.33",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_uncertain_post);"
     ]
@@ -30,7 +30,7 @@
     "name": "mostly_credible_post_content_analysis",
     "description": "checks the post and flags as mostly credible",
     "priority": 4,
-    "condition": "contentanalysis_avg_stance_support > 0.3 && contentanalysis_avg_stance_support < 0.4 && contentanalysis_avg_stance_query < 0.2 && contentanalysis_avg_stance_deny < 0.2 && contentanalysis_avg_stance_comment >0.4",
+    "condition": "contentanalysis_veracity_true < 0.33 && contentanalysis_veracity_true >= 0.20 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_credible_post);"
     ]
@@ -39,7 +39,7 @@
     "name": "credible_post_content_analysis",
     "description": "checks the post and flags as credible",
     "priority": 5,
-    "condition": "contentanalysis_avg_stance_comment > 0.4 && contentanalysis_avg_stance_support > 0.4 && contentanalysis_avg_stance_deny < 0.1 && contentanalysis_avg_stance_query < 0.1",
+    "condition": "contentanalysis_veracity_true >= 0.33 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_post);"
     ]
