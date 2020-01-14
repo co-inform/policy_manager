@@ -39,7 +39,7 @@
     "name": "credible_post_content_analysis",
     "description": "checks the post and flags as credible",
     "priority": 5,
-    "condition": "contentanalysis_veracity_true >= 0.33" && "contentanalysis_veracity_unknown <= 0.33",
+    "condition": "contentanalysis_veracity_true >= 0.33 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_post);"
     ]
