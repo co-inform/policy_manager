@@ -1,0 +1,355 @@
+{
+  "status": "done",
+  "response": {
+    "MisinfoMe": {
+      "response": {
+        "credibility": {
+          "value": 0.0,
+          "confidence": 0.0
+        },
+        "profile_as_source_credibility": {
+          "credibility": {
+            "value": 0,
+            "confidence": 0
+          }
+        },
+        "sources_credibility": {
+          "credibility": {
+            "value": 0.0,
+            "confidence": 0.0
+          },
+          "assessments": []
+        },
+        "urls_credibility": {
+          "credibility": {
+            "value": 0.0,
+            "confidence": 0.0
+          },
+          "assessments": []
+        },
+        "itemReviewed": 1216699146385661952
+      }
+    },
+    "rule_engine": {
+      "final_credibility": "not verifiable post",
+      "module_labels": {
+        "claim_similarity": "not credible post",
+        "misinfome": "not verifiable post"
+      }
+    },
+    "ClaimCredibility": {
+      "response": {
+        "tweet-claim-credibility": [
+          {
+            "tweet_id": 1216699146385661952,
+            "sentences_in_tweet": [
+              {
+                "claim": "Hur kommer det sig att just den sprängningen får så mycket uppmärksamhet hos SVT?",
+                "related_claims": {
+                  "reviewed-claims": [],
+                  "fact-checker-sentences": [],
+                  "credible-pub-sentences": [
+                    {
+                      "sentence": "Västerås struck Karlskrona",
+                      "domain": "www.expressen.se",
+                      "similarity": 0.7905639891184439,
+                      "doc_url": "https://www.expressen.se/kvallsposten/sport/hockeyallsvenskan/leksands-kross--mosade-tingsryd/#site-menu",
+                      "coinform_collection": "pilot-se",
+                      "lang_orig": "en",
+                      "published_date": "2019-03-29T14:41:11.396Z",
+                      "claimspot_score": 0.280676344722828,
+                      "domain_credibility": {
+                        "credibility": {
+                          "confidence": 0.4,
+                          "value": 0.6800000000000002,
+                          "source": "domain",
+                          "domainReviewed": "www.expressen.se"
+                        },
+                        "itemReviewed": "www.expressen.se"
+                      },
+                      "similarity_credibility": {
+                        "value": 0.6800000000000002,
+                        "confidence": 0.3162255956473776,
+                        "explanation": "Claim is similar to:\n\n * Västerås struck Karlskrona\nthat was published in a site (www.expressen.se) that is reliable. ",
+                        "source": "credibility of related claims (3)"
+                      }
+                    },
+                    {
+                      "sentence": "Strandroad-Torsten Mårtenssons Gata 2, Helsingborg.",
+                      "domain": "www.expressen.se",
+                      "similarity": 0.7799442719495445,
+                      "doc_url": "https://www.expressen.se/kvallsposten/utlandska-kopare-slar-till-pa-svenska-lyxhus/#site-menu",
+                      "coinform_collection": "pilot-se",
+                      "lang_orig": "en",
+                      "published_date": "2019-03-29T15:01:04.592Z",
+                      "claimspot_score": 0.338241992954616,
+                      "domain_credibility": {
+                        "credibility": {
+                          "confidence": 0.4,
+                          "value": 0.6800000000000002,
+                          "source": "domain",
+                          "domainReviewed": "www.expressen.se"
+                        },
+                        "itemReviewed": "www.expressen.se"
+                      },
+                      "similarity_credibility": {
+                        "value": 0.6800000000000002,
+                        "confidence": 0.31197770877981784,
+                        "explanation": "Claim is similar to:\n\n * Strandroad-Torsten Mårtenssons Gata 2, Helsingborg.\nthat was published in a site (www.expressen.se) that is reliable. "
+                      }
+                    },
+                    {
+                      "sentence": "Rosa, 895 kroner, Design House Stockholm.",
+                      "domain": "www.expressen.se",
+                      "similarity": 0.7625394971196137,
+                      "doc_url": "https://www.expressen.se/leva-och-bo/inredning/vardagsrum/vaga-farg-inred-med-farger-och-naturmaterial/",
+                      "coinform_collection": "pilot-se",
+                      "lang_orig": "en",
+                      "published_date": "2019-03-29T14:10:18.616Z",
+                      "claimspot_score": -1.0,
+                      "domain_credibility": {
+                        "credibility": {
+                          "confidence": 0.4,
+                          "value": 0.6800000000000002,
+                          "source": "domain",
+                          "domainReviewed": "www.expressen.se"
+                        },
+                        "itemReviewed": "www.expressen.se"
+                      },
+                      "similarity_credibility": {
+                        "value": 0.6800000000000002,
+                        "confidence": 0.30501579884784547,
+                        "explanation": "Claim is similar to:\n\n * Rosa, 895 kroner, Design House Stockholm.\nthat was published in a site (www.expressen.se) that is reliable. "
+                      }
+                    }
+                  ],
+                  "non-credible-pub-sentences": []
+                },
+                "credibility": {
+                  "value": 0.6800000000000002,
+                  "confidence": 0.3162255956473776,
+                  "explanation": "Claim is similar to:\n\n * Västerås struck Karlskrona\nthat was published in a site (www.expressen.se) that is reliable. ",
+                  "source": "credibility of related claims (3)"
+                }
+              },
+              {
+                "claim": "#svpol #svtnyheter",
+                "related_claims": {
+                  "reviewed-claims": [],
+                  "fact-checker-sentences": [],
+                  "credible-pub-sentences": [
+                    {
+                      "sentence": "Para-Ski: Forster succeeds in Slalom-zdfmediathek\n",
+                      "domain": "www.zdf.de",
+                      "similarity": 0.7586553331997907,
+                      "doc_url": "https://www.zdf.de/sport/zdf-sportextra/para-ski-weltcup-in-la-molina-forster-mit-erstem-sieg-im-slalom-100.html",
+                      "coinform_collection": "pilot-at",
+                      "lang_orig": "en",
+                      "published_date": "2019-03-18T16:19:15.487Z",
+                      "claimspot_score": -1.0,
+                      "domain_credibility": {
+                        "credibility": {
+                          "confidence": 0.8666666666666667,
+                          "value": 0.9723076923076923,
+                          "source": "domain",
+                          "domainReviewed": "www.zdf.de"
+                        },
+                        "itemReviewed": "www.zdf.de"
+                      },
+                      "similarity_credibility": {
+                        "value": 0.9723076923076923,
+                        "confidence": 0.657501288773152,
+                        "explanation": "Claim is similar to:\n\n * Para-Ski: Forster succeeds in Slalom-zdfmediathek\n\nthat was published in a site (www.zdf.de) that is reliable. ",
+                        "source": "credibility of related claims (2)"
+                      }
+                    },
+                    {
+                      "sentence": "2018 Melodifestival: Fab Freddie hates - it's SVT's fault.\n",
+                      "domain": "www.expressen.se",
+                      "similarity": 0.7560806352493399,
+                      "doc_url": "https://www.expressen.se/noje/kronikorer/anders-nunstedt/fab-freddie-hatas-och-det-ar-svts-fel/",
+                      "coinform_collection": "pilot-se",
+                      "lang_orig": "en",
+                      "published_date": "2019-03-29T14:21:25.804Z",
+                      "claimspot_score": -1.0,
+                      "domain_credibility": {
+                        "credibility": {
+                          "confidence": 0.4,
+                          "value": 0.6800000000000002,
+                          "source": "domain",
+                          "domainReviewed": "www.expressen.se"
+                        },
+                        "itemReviewed": "www.expressen.se"
+                      },
+                      "similarity_credibility": {
+                        "value": 0.6800000000000002,
+                        "confidence": 0.30243225409973595,
+                        "explanation": "Claim is similar to:\n\n * 2018 Melodifestival: Fab Freddie hates - it's SVT's fault.\n\nthat was published in a site (www.expressen.se) that is reliable. "
+                      }
+                    }
+                  ],
+                  "non-credible-pub-sentences": []
+                },
+                "credibility": {
+                  "value": 0.9723076923076923,
+                  "confidence": 0.657501288773152,
+                  "explanation": "Claim is similar to:\n\n * Para-Ski: Forster succeeds in Slalom-zdfmediathek\n\nthat was published in a site (www.zdf.de) that is reliable. ",
+                  "source": "credibility of related claims (2)"
+                }
+              }
+            ],
+            "sentences_linked": [],
+            "credibility": 0.0,
+            "confidence": 0.0,
+            "credibility_label": "not verifiable",
+            "explanation": "Could not assess credibility of 2 sentences in the tweet and 0 sentences in linked documents with sufficient confidence"
+          }
+        ]
+      }
+    },
+    "ContentAnalysis": {
+      "response": {
+        "id": "1216699146385661952",
+        "text": "Hur kommer det sig att just den sprängningen får så mycket uppmärksamhet hos SVT? #svpol #svtnyheter\nhttps://t.co/I0uQhE5rWC",
+        "stance_comment": 0.5438348000914089,
+        "stance_deny": 0.1182245678107701,
+        "stance_query": 0.15158842889583132,
+        "stance_support": 0.18635220320198978,
+        "avg_stance_comment": 0.38731460602428847,
+        "avg_stance_deny": 0.1341101949634957,
+        "avg_stance_query": 0.10024389233557252,
+        "avg_stance_support": 0.3783313066766432,
+        "veracity_false": 0.35982900807983703,
+        "veracity_true": 0.35119150257123627,
+        "veracity_unknown": 0.2889794893489267
+      }
+    }
+  },
+  "query_id": "acf50bd1b63e0a624a363b370de20135bc54e94aa9479d26f1b5a69c01845878",
+  "module_response_code": {
+    "misinfome": 200,
+    "contentanalysis": 200,
+    "claimcredibility": 200
+  },
+  "flattened_module_responses": {
+    "claimcredibility_tweet_claim_credibility_0_tweet_id": 1216699146385661952,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_claim": "Hur kommer det sig att just den sprängningen får så mycket uppmärksamhet hos SVT?",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_sentence": "Västerås struck Karlskrona",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_domain": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_similarity": 0.7905639891184439,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_doc_url": "https://www.expressen.se/kvallsposten/sport/hockeyallsvenskan/leksands-kross--mosade-tingsryd/#site-menu",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_coinform_collection": "pilot-se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_lang_orig": "en",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_published_date": "2019-03-29T14:41:11.396Z",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_claimspot_score": 0.280676344722828,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_domain_credibility_credibility_confidence": 0.4,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_domain_credibility_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_domain_credibility_credibility_source": "domain",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_domain_credibility_credibility_domainreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_domain_credibility_itemreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_similarity_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_similarity_credibility_confidence": 0.3162255956473776,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_similarity_credibility_explanation": "Claim is similar to:\n\n * Västerås struck Karlskrona\nthat was published in a site (www.expressen.se) that is reliable. ",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_0_similarity_credibility_source": "credibility of related claims (3)",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_sentence": "Strandroad-Torsten Mårtenssons Gata 2, Helsingborg.",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_domain": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_similarity": 0.7799442719495445,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_doc_url": "https://www.expressen.se/kvallsposten/utlandska-kopare-slar-till-pa-svenska-lyxhus/#site-menu",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_coinform_collection": "pilot-se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_lang_orig": "en",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_published_date": "2019-03-29T15:01:04.592Z",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_claimspot_score": 0.338241992954616,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_domain_credibility_credibility_confidence": 0.4,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_domain_credibility_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_domain_credibility_credibility_source": "domain",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_domain_credibility_credibility_domainreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_domain_credibility_itemreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_similarity_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_similarity_credibility_confidence": 0.31197770877981784,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_1_similarity_credibility_explanation": "Claim is similar to:\n\n * Strandroad-Torsten Mårtenssons Gata 2, Helsingborg.\nthat was published in a site (www.expressen.se) that is reliable. ",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_sentence": "Rosa, 895 kroner, Design House Stockholm.",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_domain": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_similarity": 0.7625394971196137,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_doc_url": "https://www.expressen.se/leva-och-bo/inredning/vardagsrum/vaga-farg-inred-med-farger-och-naturmaterial/",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_coinform_collection": "pilot-se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_lang_orig": "en",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_published_date": "2019-03-29T14:10:18.616Z",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_claimspot_score": -1.0,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_domain_credibility_credibility_confidence": 0.4,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_domain_credibility_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_domain_credibility_credibility_source": "domain",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_domain_credibility_credibility_domainreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_domain_credibility_itemreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_similarity_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_similarity_credibility_confidence": 0.30501579884784547,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_related_claims_credible_pub_sentences_2_similarity_credibility_explanation": "Claim is similar to:\n\n * Rosa, 895 kroner, Design House Stockholm.\nthat was published in a site (www.expressen.se) that is reliable. ",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_credibility_confidence": 0.3162255956473776,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_credibility_explanation": "Claim is similar to:\n\n * Västerås struck Karlskrona\nthat was published in a site (www.expressen.se) that is reliable. ",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_0_credibility_source": "credibility of related claims (3)",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_claim": "#svpol #svtnyheter",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_sentence": "Para-Ski: Forster succeeds in Slalom-zdfmediathek\n",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_domain": "www.zdf.de",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_similarity": 0.7586553331997907,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_doc_url": "https://www.zdf.de/sport/zdf-sportextra/para-ski-weltcup-in-la-molina-forster-mit-erstem-sieg-im-slalom-100.html",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_coinform_collection": "pilot-at",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_lang_orig": "en",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_published_date": "2019-03-18T16:19:15.487Z",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_claimspot_score": -1.0,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_domain_credibility_credibility_confidence": 0.8666666666666667,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_domain_credibility_credibility_value": 0.9723076923076923,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_domain_credibility_credibility_source": "domain",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_domain_credibility_credibility_domainreviewed": "www.zdf.de",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_domain_credibility_itemreviewed": "www.zdf.de",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_similarity_credibility_value": 0.9723076923076923,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_similarity_credibility_confidence": 0.657501288773152,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_similarity_credibility_explanation": "Claim is similar to:\n\n * Para-Ski: Forster succeeds in Slalom-zdfmediathek\n\nthat was published in a site (www.zdf.de) that is reliable. ",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_0_similarity_credibility_source": "credibility of related claims (2)",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_sentence": "2018 Melodifestival: Fab Freddie hates - it's SVT's fault.\n",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_domain": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_similarity": 0.7560806352493399,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_doc_url": "https://www.expressen.se/noje/kronikorer/anders-nunstedt/fab-freddie-hatas-och-det-ar-svts-fel/",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_coinform_collection": "pilot-se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_lang_orig": "en",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_published_date": "2019-03-29T14:21:25.804Z",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_claimspot_score": -1.0,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_domain_credibility_credibility_confidence": 0.4,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_domain_credibility_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_domain_credibility_credibility_source": "domain",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_domain_credibility_credibility_domainreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_domain_credibility_itemreviewed": "www.expressen.se",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_similarity_credibility_value": 0.6800000000000002,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_similarity_credibility_confidence": 0.30243225409973595,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_related_claims_credible_pub_sentences_1_similarity_credibility_explanation": "Claim is similar to:\n\n * 2018 Melodifestival: Fab Freddie hates - it's SVT's fault.\n\nthat was published in a site (www.expressen.se) that is reliable. ",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_credibility_value": 0.9723076923076923,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_credibility_confidence": 0.657501288773152,
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_credibility_explanation": "Claim is similar to:\n\n * Para-Ski: Forster succeeds in Slalom-zdfmediathek\n\nthat was published in a site (www.zdf.de) that is reliable. ",
+    "claimcredibility_tweet_claim_credibility_0_sentences_in_tweet_1_credibility_source": "credibility of related claims (2)",
+    "claimcredibility_tweet_claim_credibility_0_credibility": 0.0,
+    "claimcredibility_tweet_claim_credibility_0_confidence": 0.0,
+    "claimcredibility_tweet_claim_credibility_0_credibility_label": "not verifiable",
+    "claimcredibility_tweet_claim_credibility_0_explanation": "Could not assess credibility of 2 sentences in the tweet and 0 sentences in linked documents with sufficient confidence",
+    "misinfome_credibility_value": 0.0,
+    "misinfome_credibility_confidence": 0.0,
+    "misinfome_profile_as_source_credibility_credibility_value": 0,
+    "misinfome_profile_as_source_credibility_credibility_confidence": 0,
+    "misinfome_sources_credibility_credibility_value": 0.0,
+    "misinfome_sources_credibility_credibility_confidence": 0.0,
+    "misinfome_urls_credibility_credibility_value": 0.0,
+    "misinfome_urls_credibility_credibility_confidence": 0.0,
+    "misinfome_itemreviewed": 1216699146385661952,
+    "contentanalysis_id": "1216699146385661952",
+    "contentanalysis_text": "Hur kommer det sig att just den sprängningen får så mycket uppmärksamhet hos SVT? #svpol #svtnyheter\nhttps://t.co/I0uQhE5rWC",
+    "contentanalysis_stance_comment": 0.5438348000914089,
+    "contentanalysis_stance_deny": 0.1182245678107701,
+    "contentanalysis_stance_query": 0.15158842889583132,
+    "contentanalysis_stance_support": 0.18635220320198978,
+    "contentanalysis_avg_stance_comment": 0.38731460602428847,
+    "contentanalysis_avg_stance_deny": 0.1341101949634957,
+    "contentanalysis_avg_stance_query": 0.10024389233557252,
+    "contentanalysis_avg_stance_support": 0.3783313066766432,
+    "contentanalysis_veracity_false": 0.35982900807983703,
+    "contentanalysis_veracity_true": 0.35119150257123627,
+    "contentanalysis_veracity_unknown": 0.2889794893489267
+  }
+}
