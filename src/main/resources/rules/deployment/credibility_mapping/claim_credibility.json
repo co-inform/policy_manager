@@ -62,7 +62,7 @@
     "priority": 1,
     "condition": "true",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_credible_post);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_verifiable_post);"
     ]
   }
 ]
