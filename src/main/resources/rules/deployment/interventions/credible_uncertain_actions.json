@@ -3,7 +3,7 @@
   "description": "the system acknowledges the user for posting uncertain tweets (explainability) and tiggers inject",
   "condition": "callback.getFinalCredibility() == Credibility.credible_uncertain",
   "actions": [
-    "callback.inject();"
+    //TO-DO
   ]
 },
 {
@@ -11,7 +11,7 @@
   "description": "the system acknowledges the user for posting uncertain credible tweets (explainability) and tiggers inoculate",
   "condition": "callback.getFinalCredibility() == Credibility.credible_uncertain",
   "actions": [
-    "callback.inoculate();"
+    //TO-DO
   ]
 }
 ]
