@@ -12,7 +12,7 @@
     "name": "not-credible_post_content_analysis",
     "description": "checks the post and flags as not credible",
     "priority": 2,
-    "condition": "contentanalysis_veracity_true < 0.15 && contentanalysis_veracity_unknown <= 0.33",
+    "condition": "contentanalysis_veracity_true < 0.10 && contentanalysis_veracity_unknown > 0.4 && contentanalysis_veracity_unknown < 0.33",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.not_credible_post);"
     ]
@@ -40,6 +40,15 @@
     "description": "checks the post and flags as credible",
     "priority": 5,
     "condition": "contentanalysis_veracity_true >= 0.33 && contentanalysis_veracity_unknown <= 0.33",
+    "actions": [
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_post);"
+    ]
+  },
+    {
+    "name": "mostly_not_credible_post_content_analysis",
+    "description": "checks the post and flags as credible",
+    "priority": 6,
+    "condition": "contentanalysis_veracity_true < 0.15 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_post);"
     ]
