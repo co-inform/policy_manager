@@ -3,6 +3,6 @@
   "description": "the system acknowledges the user for posting not-credible tweets (explainability) and blurr the tweets",
   "condition": "callback.getFinalCredibility() == Credibility.not_credible",
   "actions": [
-    "callback.Blurry();"
+    //TO-DO
   ]
 }
