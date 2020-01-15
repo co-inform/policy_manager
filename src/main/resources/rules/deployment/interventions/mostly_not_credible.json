@@ -3,7 +3,7 @@
   "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers notify",
   "condition": "callback.getFinalCredibility() == Credibility.mostly_not_credible",
   "actions": [
-    "callback.notify();"
+    //TO-DO
   ]
 },
 {
@@ -11,7 +11,7 @@
   "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers notify",
   "condition": "callback.getFinalCredibility() == Credibility.mostly_not_credible",
   "actions": [
-    "callback.alternative();"
+    //TO-DO
   ]
 }
 ]
