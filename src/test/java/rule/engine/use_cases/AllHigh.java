@@ -43,7 +43,7 @@ public class AllHigh {
     }
 
     @Test
-    public void case1() {
+    public void case_credible_1() {
         //edit these values
         moduleResponses.put("misinfome_credibility_value", 1);
         moduleResponses.put("misinfome_credibility_confidence", 1);
@@ -53,6 +53,10 @@ public class AllHigh {
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 1);
         expectedLabel = Credibility.credible_post;
 
+        eval_rule();
+    }
+
+    protected void eval_rule() {
         ruleEngine.check(new ModelProperties(moduleResponses), callback, ruleSet);
 
         //some log printouts
@@ -64,7 +68,7 @@ public class AllHigh {
     }
 
     @Test
-    public void case2() {
+    public void case_credible_2() {
         //edit these values
         moduleResponses.put("misinfome_credibility_value", 0.7);
         moduleResponses.put("misinfome_credibility_confidence", 0.8);
@@ -76,16 +80,11 @@ public class AllHigh {
 
         ruleEngine.check(new ModelProperties(moduleResponses), callback, ruleSet);
 
-        //some log printouts
-        log.info("module labels:");
-        callback.getModuleCredibility().forEach((name, label) -> log.info("\t{}: {}", name, label));
-        log.info("expected label: {}, actual label: {}", expectedLabel, callback.getFinalCredibility());
-
-        assertThat(callback.getFinalCredibility()).isEqualTo(expectedLabel);
+        eval_rule();
     }
 
     @Test
-    public void case3() {
+    public void case_mostly_credible() {
         //edit these values
         moduleResponses.put("misinfome_credibility_value", 0.58);
         moduleResponses.put("misinfome_credibility_confidence", 0.65);
@@ -95,13 +94,48 @@ public class AllHigh {
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
         expectedLabel = Credibility.mostly_credible_post;
 
-        ruleEngine.check(new ModelProperties(moduleResponses), callback, ruleSet);
+        eval_rule();
+    }
 
-        //some log printouts
-        log.info("module labels:");
-        callback.getModuleCredibility().forEach((name, label) -> log.info("\t{}: {}", name, label));
-        log.info("expected label: {}, actual label: {}", expectedLabel, callback.getFinalCredibility());
+    @Test
+    public void case_credible_uncertain() {
+        //edit these values
+        moduleResponses.put("misinfome_credibility_value", 0.25);
+        moduleResponses.put("misinfome_credibility_confidence", 0.6);
+        moduleResponses.put("contentanalysis_veracity_true", 0.18);
+        moduleResponses.put("contentanalysis_veracity_unknown", 0.4);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.2);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
+        expectedLabel = Credibility.credible_uncertain_post;
 
-        assertThat(callback.getFinalCredibility()).isEqualTo(expectedLabel);
+        eval_rule();
+    }
+
+    @Test
+    public void mostly_not_credible() {
+        //edit these values
+        moduleResponses.put("misinfome_credibility_value", -0.5);
+        moduleResponses.put("misinfome_credibility_confidence", 0.7);
+        moduleResponses.put("contentanalysis_veracity_true", 0.11);
+        moduleResponses.put("contentanalysis_veracity_unknown", 0.34);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.4);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
+        expectedLabel = Credibility.credible_uncertain_post;
+
+        eval_rule();
+    }
+
+    @Test
+    public void mostly_not_credible() {
+        //edit these values
+        moduleResponses.put("misinfome_credibility_value", -0.5);
+        moduleResponses.put("misinfome_credibility_confidence", 0.7);
+        moduleResponses.put("contentanalysis_veracity_true", 0.11);
+        moduleResponses.put("contentanalysis_veracity_unknown", 0.34);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.4);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
+        expectedLabel = Credibility.credible_uncertain_post;
+
+        eval_rule();
     }
 }
