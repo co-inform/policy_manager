@@ -1,17 +1,17 @@
 [{
   "name": "mostly_not_credible_notify",
   "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers notify",
-  "condition": "\"mostly not credible\".equals(final_credibility) && \"notify\".credible_preference",
+  "condition": "callback.getFinalCredibility() == Credibility.mostly_not_credible",
   "actions": [
-    "callback.notify();"
+    //TO-DO
   ]
 },
 {
   "name": "mostly_not_credible_alternative",
   "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers notify",
-  "condition": "\"mostly not credible\".equals(final_credibility) && \"alternative\".credible_preference",
+  "condition": "callback.getFinalCredibility() == Credibility.mostly_not_credible",
   "actions": [
-    "callback.alternative();"
+    //TO-DO
   ]
 }
 ]
