@@ -1,7 +1,7 @@
 {
   "name": "not-credible_social_translucence",
   "description": "the system acknowledges the user for posting not-credible tweets (explainability) and blurr the tweets",
-  "condition": "\"not-credible\".equals(final_credibility) && \"Blurry\".credible_preference",
+  "condition": "callback.getFinalCredibility() == Credibility.not_credible,
   "actions": [
     "callback.Blurry();"
   ]
