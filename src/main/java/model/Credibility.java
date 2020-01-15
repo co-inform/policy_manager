@@ -12,9 +12,7 @@ public enum Credibility {
     @JsonProperty("mostly credible post")
     mostly_credible_post,
     @JsonProperty("credible post")
-    credible_post;
+    credible_post,
     @JsonProperty("mostly not credible post")
-    mostly_not_credible_post;
-
-
+    mostly_not_credible_post,
 }
