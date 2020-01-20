@@ -27,4 +27,8 @@ public class PolicyEngineCallback implements Callback {
                 Credibility.values()[credibilityLabels.stream().mapToInt(Enum::ordinal).sum() / credibilityLabels.size()]
                 : Credibility.not_verifiable_post;
     }
+
+    public void social_translucence() {
+        //todo: implement functionality
+    }
 }

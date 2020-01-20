@@ -43,5 +43,14 @@
     "actions": [
       "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible_post);"
     ]
+  },
+    {
+    "name": "mostly_not_credible_post",
+    "description": "checks the post and flags as mostly not credible",
+    "priority": 6,
+    "condition": "misinfome_credibility_value > -0.66 && misinfome_credibility_value <=-0.33 && misinfome_credibility_confidence > 0.5",
+    "actions": [
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_not_credible_post);"
+    ]
   }
 ]
