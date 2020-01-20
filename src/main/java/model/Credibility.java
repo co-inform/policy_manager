@@ -3,16 +3,16 @@ package model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public enum Credibility {
-    @JsonProperty("not verifiable post")
+    @JsonProperty("not verifiable")
     not_verifiable_post,
-    @JsonProperty("not credible post")
+    @JsonProperty("not credible")
     not_credible_post,
-    @JsonProperty("mostly not credible post")
+    @JsonProperty("mostly not credible")
     mostly_not_credible_post,
-    @JsonProperty("credible uncertain post")
+    @JsonProperty("credibility uncertain")
     credible_uncertain_post,
-    @JsonProperty("mostly credible post")
+    @JsonProperty("mostly credible")
     mostly_credible_post,
-    @JsonProperty("credible post")
+    @JsonProperty("credible")
     credible_post;
 }
