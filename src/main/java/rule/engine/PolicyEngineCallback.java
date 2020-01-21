@@ -19,13 +19,17 @@ public class PolicyEngineCallback implements Callback {
 
     public PolicyEngineCallback() {
         moduleCredibility = new HashMap<>();
-        this.finalCredibility = Credibility.not_verifiable_post;
+        this.finalCredibility = Credibility.not_verifiable;
     }
 
     public Credibility averageCredibility(Collection<Credibility> credibilityLabels) {
         return credibilityLabels.size() > 0 ?
-                Credibility.values()[credibilityLabels.stream().mapToInt(Enum::ordinal).sum() / credibilityLabels.size()]
-                : Credibility.not_verifiable_post;
+                Credibility.values()
+                        [credibilityLabels.stream()
+                        .filter((credibility -> credibility != Credibility.not_verifiable))
+                        .mapToInt(Enum::ordinal)
+                        .sum() / credibilityLabels.size()]
+                : Credibility.not_verifiable;
     }
 
     public void social_translucence() {

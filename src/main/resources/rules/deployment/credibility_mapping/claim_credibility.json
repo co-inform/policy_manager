@@ -5,7 +5,7 @@
     "priority": 2,
     "condition": "claimcredibility_tweet_claim_credibility_0_credibility  > 0.5 && claimcredibility_tweet_claim_credibility_0_confidence > 0.7",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_post);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible);"
     ]
   },
   {
@@ -14,7 +14,7 @@
     "priority": 3,
     "condition": "claimcredibility_tweet_claim_credibility_0_credibility > 0.25 && claimcredibility_tweet_claim_credibility_0_credibility < 0.5 && claimcredibility_tweet_claim_credibility_0_confidence > 0.7",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.mostly_credible_post);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.mostly_credible);"
     ]
   },
   
@@ -24,7 +24,7 @@
     "priority": 3,
     "condition": "claimcredibility_tweet_claim_credibility_0_credibility > -0.25 && claimcredibility_tweet_claim_credibility_0_credibility < 0.5 && claimcredibility_tweet_claim_credibility_0_confidence > 0.7",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_uncertain_post);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_uncertain);"
     ]
   },
   
@@ -34,7 +34,7 @@
     "priority": 3,
     "condition": "claimcredibility_tweet_claim_credibility_0_credibility > -0.25 && claimcredibility_tweet_claim_credibility_0_credibility < -0.5 && claimcredibility_tweet_claim_credibility_0_confidence >= 0.7",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.mostly_not_credible_post);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.mostly_not_credible);"
     ]
   },
   {
@@ -43,7 +43,7 @@
     "priority": 2,
     "condition": "claimcredibility_tweet_claim_credibility_0_credibility > -0.5 && claimcredibility_tweet_claim_credibility_0_confidence >= 0.7",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_credible_post);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_credible);"
     ]
   },
   {
@@ -52,7 +52,7 @@
     "priority": 1,
     "condition": "true || claimcredibility_tweet_claim_credibility_0_confidence < 0.7",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_verifiable_post);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_verifiable);"
     ]
   }
 ]

@@ -67,7 +67,7 @@ public class MisinfomeRulesTest {
         PolicyEngineCallback callback = new PolicyEngineCallback();
         ModelProperties modelProperties = new ModelProperties(mockResponse(flattenedModuleResponse, mockChanges));
         ruleEngine.check(modelProperties, callback, moduleSet);
-        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.not_verifiable_post);
+        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.not_verifiable);
     }
 
     /**
@@ -84,7 +84,7 @@ public class MisinfomeRulesTest {
         PolicyEngineCallback callback = new PolicyEngineCallback();
         ModelProperties modelProperties = new ModelProperties(mockResponse(flattenedModuleResponse, mockChanges));
         ruleEngine.check(modelProperties, callback, moduleSet);
-        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.not_credible_post);
+        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.not_credible);
     }
 
     /**
@@ -101,7 +101,7 @@ public class MisinfomeRulesTest {
         PolicyEngineCallback callback = new PolicyEngineCallback();
         ModelProperties modelProperties = new ModelProperties(mockResponse(flattenedModuleResponse, mockChanges));
         ruleEngine.check(modelProperties, callback, moduleSet);
-        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.credible_uncertain_post);
+        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.credible_uncertain);
     }
 
     /**
@@ -118,7 +118,7 @@ public class MisinfomeRulesTest {
         PolicyEngineCallback callback = new PolicyEngineCallback();
         ModelProperties modelProperties = new ModelProperties(mockResponse(flattenedModuleResponse, mockChanges));
         ruleEngine.check(modelProperties, callback, moduleSet);
-        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.mostly_credible_post);
+        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.mostly_credible);
     }
 
     /**
@@ -135,7 +135,7 @@ public class MisinfomeRulesTest {
         PolicyEngineCallback callback = new PolicyEngineCallback();
         ModelProperties modelProperties = new ModelProperties(mockResponse(flattenedModuleResponse, mockChanges));
         ruleEngine.check(modelProperties, callback, moduleSet);
-        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.credible_post);
+        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.credible);
     }
 
     private Map<String, Object> mockResponse(Map<String, Object> resp, Map<String, Object> mockChanges) {

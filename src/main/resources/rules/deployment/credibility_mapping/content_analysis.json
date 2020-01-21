@@ -5,7 +5,7 @@
     "priority": 1,
     "condition": "contentanalysis_veracity_true < 0.15 && contentanalysis_veracity_unknown >= 0.50",
     "actions": [
-      "callback.getModuleCredibility.put(\"content_analysis\", Credibility.not_verifiable_post);"
+      "callback.getModuleCredibility.put(\"content_analysis\", Credibility.not_verifiable);"
     ]
   },
   {
@@ -14,7 +14,7 @@
     "priority": 2,
     "condition": "contentanalysis_veracity_true < 0.10 && contentanalysis_veracity_unknown > 0.4 && contentanalysis_veracity_unknown < 0.33",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.not_credible_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.not_credible);"
     ]
   },
   {
@@ -23,7 +23,7 @@
     "priority": 3,
     "condition": "contentanalysis_veracity_true < 0.20 && contentanalysis_veracity_true >= 0.15 && contentanalysis_veracity_unknown >= 0.33",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_uncertain_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_uncertain);"
     ]
   },
   {
@@ -32,7 +32,7 @@
     "priority": 4,
     "condition": "contentanalysis_veracity_true < 0.33 && contentanalysis_veracity_true >= 0.20 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_credible_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_credible);"
     ]
   },
   {
@@ -41,7 +41,7 @@
     "priority": 5,
     "condition": "contentanalysis_veracity_true >= 0.33 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible);"
     ]
   },
     {
@@ -50,7 +50,7 @@
     "priority": 6,
     "condition": "contentanalysis_veracity_true < 0.15 && contentanalysis_veracity_unknown <= 0.33",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_post);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible);"
     ]
   }
 ]

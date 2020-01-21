@@ -5,7 +5,7 @@
     "priority": 1,
     "condition": "misinfome_credibility_confidence < 0.5 || true",
     "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.not_verifiable_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.not_verifiable);"
     ]
   },
   {
@@ -14,7 +14,7 @@
     "priority": 2,
     "condition": "misinfome_credibility_value < -0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.not_credible_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.not_credible);"
     ]
   },
   {
@@ -23,7 +23,7 @@
     "priority": 3,
     "condition": "misinfome_credibility_value > -0.33 && misinfome_credibility_value <= 0.33 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible_uncertain_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible_uncertain);"
     ]
   },
   {
@@ -32,7 +32,7 @@
     "priority": 4,
     "condition": "misinfome_credibility_value > 0.33 && misinfome_credibility_value <= 0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_credible_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_credible);"
     ]
   },
   {
@@ -41,7 +41,7 @@
     "priority": 5,
     "condition": "misinfome_credibility_value > 0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible);"
     ]
   },
     {
@@ -50,7 +50,7 @@
     "priority": 6,
     "condition": "misinfome_credibility_value > -0.66 && misinfome_credibility_value <=-0.33 && misinfome_credibility_confidence > 0.5",
     "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_not_credible_post);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_not_credible);"
     ]
   }
 ]
