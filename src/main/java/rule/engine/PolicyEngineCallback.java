@@ -23,13 +23,16 @@ public class PolicyEngineCallback implements Callback {
     }
 
     public Credibility averageCredibility(Collection<Credibility> credibilityLabels) {
-        return credibilityLabels.size() > 0 ?
-                Credibility.values()
-                        [credibilityLabels.stream()
-                        .filter((credibility -> credibility != Credibility.not_verifiable))
-                        .mapToInt(Enum::ordinal)
-                        .sum() / (int) credibilityLabels.stream().filter((credibility -> credibility != Credibility.not_verifiable)).count()]
-                : Credibility.not_verifiable;
+        int count = 0;
+        int sum = 0;
+        for (Credibility cred : credibilityLabels) {
+
+            if (cred != Credibility.not_verifiable) {
+                count++;
+                sum += cred.ordinal();
+            }
+        }
+        return Credibility.values()[sum / Math.max(1, count)]; //if count is 0 sum will also be 0
     }
 
     public void social_translucence() {
