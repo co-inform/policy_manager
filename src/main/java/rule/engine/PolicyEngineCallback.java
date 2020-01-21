@@ -28,7 +28,7 @@ public class PolicyEngineCallback implements Callback {
                         [credibilityLabels.stream()
                         .filter((credibility -> credibility != Credibility.not_verifiable))
                         .mapToInt(Enum::ordinal)
-                        .sum() / credibilityLabels.size()]
+                        .sum() / (int) credibilityLabels.stream().filter((credibility -> credibility != Credibility.not_verifiable)).count()]
                 : Credibility.not_verifiable;
     }
 
