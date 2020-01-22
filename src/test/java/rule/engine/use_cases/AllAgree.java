@@ -21,9 +21,11 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+// These
+
 @Slf4j
 @RunWith(MockitoJUnitRunner.class)
-public class AllHigh {
+public class AllAgree {
 
     RuleEngine ruleEngine;
     Set<String> ruleSet;
@@ -110,17 +112,4 @@ public class AllHigh {
         eval_rule();
     }
 
-    @Test
-    public void mostly_not_credible() {
-        //edit these values
-        moduleResponses.put("misinfome_credibility_value", -0.7);
-        moduleResponses.put("misinfome_credibility_confidence", -0.6);
-        moduleResponses.put("contentanalysis_veracity_true", -0.67);
-        moduleResponses.put("contentanalysis_veracity_unknown", -0.7);
-        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.6);
-        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
-        expectedLabel = Credibility.credible_uncertain_post;
-
-        eval_rule();
-    }
 }
