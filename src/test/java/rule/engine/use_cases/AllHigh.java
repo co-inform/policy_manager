@@ -21,6 +21,8 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+// All agree with high confidence
+
 @Slf4j
 @RunWith(MockitoJUnitRunner.class)
 public class AllHigh {
@@ -51,7 +53,7 @@ public class AllHigh {
         moduleResponses.put("contentanalysis_confidence", 1);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", 1);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 1);
-        expectedLabel = Credibility.credible_post;
+        expectedLabel = Credibility.credible;
 
         eval_rule();
     }
@@ -61,8 +63,8 @@ public class AllHigh {
 
         //some log printouts
 //        log.info("module labels:");
-        callback.getModuleCredibility().forEach((name, label) -> log.info("\t{}: {}", name, label));
-//        log.info("expected label: {}, actual label: {}", expectedLabel, callback.getFinalCredibility());
+//       callback.getModuleCredibility().forEach((name, label) -> log.info("\t{}: {}", name, label));
+        log.info("expected label: {}, actual label: {}", expectedLabel, callback.getFinalCredibility());
 
         assertThat(callback.getFinalCredibility()).isEqualTo(expectedLabel);
     }
@@ -76,7 +78,7 @@ public class AllHigh {
         moduleResponses.put("contentanalysis_confidence", 0.7);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", 0.8);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
-        expectedLabel = Credibility.credible_post;
+        expectedLabel = Credibility.credible;
 
         ruleEngine.check(new ModelProperties(moduleResponses), callback, ruleSet);
 
@@ -92,7 +94,7 @@ public class AllHigh {
         moduleResponses.put("contentanalysis_confidence", 0.62);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", 0.4);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
-        expectedLabel = Credibility.mostly_credible_post;
+        expectedLabel = Credibility.mostly_credible;
 
         eval_rule();
     }
@@ -106,7 +108,7 @@ public class AllHigh {
         moduleResponses.put("contentanalysis_confidence", 1);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.2);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
-        expectedLabel = Credibility.credible_uncertain_post;
+        expectedLabel = Credibility.credible_uncertain;
 
         eval_rule();
     }
@@ -120,13 +122,13 @@ public class AllHigh {
         moduleResponses.put("contentanalysis_confidence", 0.8);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.4);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
-        expectedLabel = Credibility.credible_uncertain_post;
+        expectedLabel = Credibility.mostly_not_credible;
 
         eval_rule();
     }
 
     @Test
-    public void mostly_not_credible2() {
+    public void not_credible() {
         //edit these values
         moduleResponses.put("misinfome_credibility_value", -0.67);
         moduleResponses.put("misinfome_credibility_confidence", 0.6);
@@ -134,8 +136,9 @@ public class AllHigh {
         moduleResponses.put("contentanalysis_confidence", 0.7);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.6);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
-        expectedLabel = Credibility.credible_uncertain_post;
+        expectedLabel = Credibility.not_credible;
 
         eval_rule();
     }
+
 }

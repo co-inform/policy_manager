@@ -21,7 +21,7 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// These
+// All agree, but some have low confidence
 
 @Slf4j
 @RunWith(MockitoJUnitRunner.class)
@@ -49,11 +49,11 @@ public class AllAgree {
         //edit these values
         moduleResponses.put("misinfome_credibility_value", 1);
         moduleResponses.put("misinfome_credibility_confidence", 1);
-        moduleResponses.put("contentanalysis_veracity_true", 1);
-        moduleResponses.put("contentanalysis_veracity_unknown", -0.3);
+        moduleResponses.put("contentanalysis_credibility", 1);
+        moduleResponses.put("contentanalysis_confidence", 1);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", 1);
-        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.4);
-        expectedLabel = Credibility.credible_post;
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.1);
+        expectedLabel = Credibility.credible;
 
         eval_rule();
     }
@@ -73,13 +73,13 @@ public class AllAgree {
     @Test
     public void case_mostly_credible() {
         //edit these values
-        moduleResponses.put("misinfome_credibility_value", 0.58);
-        moduleResponses.put("misinfome_credibility_confidence", -1);
-        moduleResponses.put("contentanalysis_veracity_true", 0.4);
-        moduleResponses.put("contentanalysis_veracity_unknown", 0.65);
+        moduleResponses.put("misinfome_credibility_value", 0.55);
+        moduleResponses.put("misinfome_credibility_confidence", 0.3);
+        moduleResponses.put("contentanalysis_credibility", 0.4);
+        moduleResponses.put("contentanalysis_confidence", 0.1);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", 0.4);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
-        expectedLabel = Credibility.mostly_credible_post;
+        expectedLabel = Credibility.mostly_credible;
 
         eval_rule();
     }
@@ -88,12 +88,12 @@ public class AllAgree {
     public void case_credible_uncertain() {
         //edit these values
         moduleResponses.put("misinfome_credibility_value", 0.25);
-        moduleResponses.put("misinfome_credibility_confidence", 0.6);
-        moduleResponses.put("contentanalysis_veracity_true", -0.2);
-        moduleResponses.put("contentanalysis_veracity_unknown", -1);
+        moduleResponses.put("misinfome_credibility_confidence", 0.1);
+        moduleResponses.put("contentanalysis_credibility", -0.2);
+        moduleResponses.put("contentanalysis_confidence", 0.1);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.2);
-        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", -0.9);
-        expectedLabel = Credibility.credible_uncertain_post;
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.8);
+        expectedLabel = Credibility.credible_uncertain;
 
         eval_rule();
     }
@@ -102,12 +102,26 @@ public class AllAgree {
     public void mostly_not_credible() {
         //edit these values
         moduleResponses.put("misinfome_credibility_value", -0.5);
-        moduleResponses.put("misinfome_credibility_confidence", -0.7);
-        moduleResponses.put("contentanalysis_veracity_true", -0.4);
-        moduleResponses.put("contentanalysis_veracity_unknown", 0.8);
+        moduleResponses.put("misinfome_credibility_confidence", 1);
+        moduleResponses.put("contentanalysis_credibility", -0.4);
+        moduleResponses.put("contentanalysis_confidence", 0.8);
         moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.4);
-        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", -0.9);
-        expectedLabel = Credibility.credible_uncertain_post;
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.1);
+        expectedLabel = Credibility.mostly_not_credible;
+
+        eval_rule();
+    }
+
+    @Test
+    public void not_credible() {
+        //edit these values
+        moduleResponses.put("misinfome_credibility_value", -0.7);
+        moduleResponses.put("misinfome_credibility_confidence", 0.2);
+        moduleResponses.put("contentanalysis_credibility", -0.65);
+        moduleResponses.put("contentanalysis_confidence", 0.3);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_credibility", -0.6);
+        moduleResponses.put("claimcredibility_tweet_claim_credibility_0_confidence", 0.9);
+        expectedLabel = Credibility.mostly_not_credible;
 
         eval_rule();
     }
