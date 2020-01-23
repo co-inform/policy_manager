@@ -212,16 +212,18 @@
         "id": "1216699146385661952",
         "text": "Hur kommer det sig att just den sprängningen får så mycket uppmärksamhet hos SVT? #svpol #svtnyheter\nhttps://t.co/I0uQhE5rWC",
         "stance_comment": 0.5438348000914089,
-        "stance_deny": 0.1182245678107701,
-        "stance_query": 0.15158842889583132,
         "stance_support": 0.18635220320198978,
-        "avg_stance_comment": 0.38731460602428847,
-        "avg_stance_deny": 0.1341101949634957,
-        "avg_stance_query": 0.10024389233557252,
-        "avg_stance_support": 0.3783313066766432,
+        "stance_query": 0.15158842889583132,
+        "stance_deny": 0.1182245678107701,
+        "credibility": -0.5060740199327665,
+        "confidence": 0.7110205106510733,
         "veracity_false": 0.35982900807983703,
         "veracity_true": 0.35119150257123627,
-        "veracity_unknown": 0.2889794893489267
+        "veracity_unknown": 0.2889794893489267,
+        "avg_stance_comment": 0.38731460602428847,
+        "avg_stance_support": 0.3783313066766432,
+        "avg_stance_query": 0.10024389233557252,
+        "avg_stance_deny": 0.1341101949634957
       }
     }
   },
@@ -341,15 +343,17 @@
     "contentanalysis_id": "1216699146385661952",
     "contentanalysis_text": "Hur kommer det sig att just den sprängningen får så mycket uppmärksamhet hos SVT? #svpol #svtnyheter\nhttps://t.co/I0uQhE5rWC",
     "contentanalysis_stance_comment": 0.5438348000914089,
-    "contentanalysis_stance_deny": 0.1182245678107701,
-    "contentanalysis_stance_query": 0.15158842889583132,
     "contentanalysis_stance_support": 0.18635220320198978,
-    "contentanalysis_avg_stance_comment": 0.38731460602428847,
-    "contentanalysis_avg_stance_deny": 0.1341101949634957,
-    "contentanalysis_avg_stance_query": 0.10024389233557252,
-    "contentanalysis_avg_stance_support": 0.3783313066766432,
+    "contentanalysis_stance_query": 0.15158842889583132,
+    "contentanalysis_stance_deny": 0.1182245678107701,
+    "contentanalysis_credibility": -0.5060740199327665,
+    "contentanalysis_confidence": 0.7110205106510733,
     "contentanalysis_veracity_false": 0.35982900807983703,
     "contentanalysis_veracity_true": 0.35119150257123627,
-    "contentanalysis_veracity_unknown": 0.2889794893489267
+    "contentanalysis_veracity_unknown": 0.2889794893489267,
+    "contentanalysis_avg_stance_comment": 0.38731460602428847,
+    "contentanalysis_avg_stance_support": 0.3783313066766432,
+    "contentanalysis_avg_stance_query": 0.10024389233557252,
+    "contentanalysis_avg_stance_deny": 0.1341101949634957
   }
 }
