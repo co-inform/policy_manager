@@ -23,7 +23,7 @@
     "priority": 3,
     "condition": "contentanalysis_credibility > -0.3 && contentanalysis_credibility < 0.3 && contentanalysis_confidence > 0.6",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_uncertain);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credibility_uncertain);"
     ]
   },
   {
@@ -50,7 +50,7 @@
     "priority": 6,
     "condition": "contentanalysis_credibility >= -0.6 && contentanalysis_credibility < -0.3 && contentanalysis_confidence > 0.6",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_not_credible);"
     ]
   }
 ]
