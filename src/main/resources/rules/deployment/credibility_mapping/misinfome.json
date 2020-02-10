@@ -18,15 +18,6 @@
     ]
   },
   {
-    "name": "credible_uncertain_post",
-    "description": "checks the post and flags as credible uncertain",
-    "priority": 3,
-    "condition": "misinfome_credibility_value > -0.33 && misinfome_credibility_value <= 0.33 && misinfome_credibility_confidence > 0.5",
-    "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credibility_uncertain);"
-    ]
-  },
-  {
     "name": "mostly_credible_post",
     "description": "checks the post and flags as mostly credible",
     "priority": 4,
