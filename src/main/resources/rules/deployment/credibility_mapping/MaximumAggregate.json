@@ -1,1 +1,11 @@
-
+[
+  {
+    "name": "maximum_aggregate_module_evaluations",
+    "description": "Takes the results from the module responses and set a final credibility",
+    "priority": 10,
+    "condition": "true",
+    "actions": [
+      "callback.setFinalCredibility(callback.maximumCredibility(callback.getModuleCredibility().values()));"
+    ]
+  }
+]
