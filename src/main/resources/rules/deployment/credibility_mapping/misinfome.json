@@ -12,25 +12,16 @@
     "name": "not-credible_post",
     "description": "checks the post and flags as not credible",
     "priority": 2,
-    "condition": "misinfome_credibility_value < -0.66 && misinfome_credibility_confidence > 0.5",
+    "condition": "misinfome_credibility_value < -0.33 && misinfome_credibility_confidence > 0.5",
     "actions": [
       "callback.getModuleCredibility().put(\"misinfome\", Credibility.not_credible);"
     ]
   },
   {
-    "name": "credible_uncertain_post",
-    "description": "checks the post and flags as credible uncertain",
-    "priority": 3,
-    "condition": "misinfome_credibility_value > -0.33 && misinfome_credibility_value <= 0.33 && misinfome_credibility_confidence > 0.5",
-    "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credibility_uncertain);"
-    ]
-  },
-  {
     "name": "mostly_credible_post",
     "description": "checks the post and flags as mostly credible",
-    "priority": 4,
-    "condition": "misinfome_credibility_value > 0.33 && misinfome_credibility_value <= 0.66 && misinfome_credibility_confidence > 0.5",
+    "priority": 3,
+    "condition": "misinfome_credibility_value >= 0.33 && misinfome_credibility_value < 0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
       "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_credible);"
     ]
@@ -38,8 +29,8 @@
   {
     "name": "credible_post",
     "description": "checks the post and flags as credible",
-    "priority": 5,
-    "condition": "misinfome_credibility_value > 0.66 && misinfome_credibility_confidence > 0.5",
+    "priority": 4,
+    "condition": "misinfome_credibility_value >= 0.66 && misinfome_credibility_confidence > 0.5",
     "actions": [
       "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible);"
     ]
@@ -47,8 +38,8 @@
     {
     "name": "mostly_not_credible_post",
     "description": "checks the post and flags as mostly not credible",
-    "priority": 6,
-    "condition": "misinfome_credibility_value > -0.66 && misinfome_credibility_value <=-0.33 && misinfome_credibility_confidence > 0.5",
+    "priority": 5,
+    "condition": "misinfome_credibility_value > -0.33 && misinfome_credibility_value <=0.33 && misinfome_credibility_confidence > 0.5",
     "actions": [
       "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_not_credible);"
     ]
