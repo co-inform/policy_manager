@@ -1,8 +1,0 @@
-{
-  "name": "credible_uncertain_post",
-  "description": "checks the post and flags as credible uncertain",
-  "condition": "post.misinfome_credibility_value > -0.33 && misinfome_credibility_value <= 0.33 && misinfome_credibility_confidence > 0.5",
-  "actions": [
-    "final_credibility = \"credible uncertain\";"
-  ]
-}
