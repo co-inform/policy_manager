@@ -107,11 +107,6 @@ public class PolicyEngineCallback implements Callback {
         return Credibility.values()[sum / Math.max(1, count)]; //if count is 0 sum will also be 0
     }
 
-    public Credibility maxCredibility(Collection<Credibility> credibilityLabels) {
-        return credibilityLabels.stream()
-                .reduce(Credibility.not_verifiable, (c1, c2) -> Credibility.values()[Math.max(c1.ordinal(), c2.ordinal())]);
-    }
-
     public void social_translucence() {
         //todo: implement functionality
     }
