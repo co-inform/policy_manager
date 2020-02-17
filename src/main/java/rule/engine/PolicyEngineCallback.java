@@ -8,6 +8,7 @@ import rule.engine.Callback;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class PolicyEngineCallback implements Callback {
 
@@ -17,9 +18,80 @@ public class PolicyEngineCallback implements Callback {
     @Getter
     private Credibility finalCredibility;
 
+    private Map<String, Module> moduleMap;
+
     public PolicyEngineCallback() {
         moduleCredibility = new HashMap<>();
+        moduleMap = new HashMap<>();
         this.finalCredibility = Credibility.not_verifiable;
+    }
+
+    public void setConfidence(String module, Double conf) {
+        Module mod = moduleMap.get(module);
+        if (mod == null) {
+            mod = new Module();
+            moduleMap.put(module, mod);
+        }
+        mod.conf = conf;
+    }
+
+    public Double getConfidence(String module) throws IllegalArgumentException {
+        if (!moduleMap.containsKey(module)) {
+            throw new IllegalArgumentException("No such module");
+        }
+        return moduleMap.get(module).conf;
+    }
+
+    public void setCredibility(String module, Double cred) {
+        Module mod = moduleMap.get(module);
+        if (mod == null) {
+            mod = new Module();
+            moduleMap.put(module, mod);
+        }
+        mod.cred = cred;
+    }
+
+    public Double getCredibility(String module) throws IllegalArgumentException {
+        if (!moduleMap.containsKey(module)) {
+            throw new IllegalArgumentException("No such module");
+        }
+        return moduleMap.get(module).cred;
+    }
+
+    public void setWeight(String module, Double weight) {
+        Module mod = moduleMap.get(module);
+        if (mod == null) {
+            mod = new Module();
+            moduleMap.put(module, mod);
+        }
+        mod.weight = weight;
+    }
+
+    public Double getWeight(String module) throws IllegalArgumentException {
+        if (!moduleMap.containsKey(module)) {
+            throw new IllegalArgumentException("No such module");
+        }
+        return moduleMap.get(module).weight;
+    }
+
+    public Collection<String> getModules() {
+        return moduleMap.keySet();
+    }
+
+    public Collection<Double> getConfidenceList() {
+        return moduleMap.values().stream().map(module -> module.conf).collect(Collectors.toList());
+    }
+
+    public Collection<Double> getCredibilityList() {
+        return moduleMap.values().stream().map(module -> module.cred).collect(Collectors.toList());
+    }
+
+    public Double max(Collection<Double> values) {
+        return values.stream().reduce(Double.MIN_VALUE, Double::max);
+    }
+
+    public Double average(Collection<Double> values) {
+        return values.size() == 0 ? 0 : values.stream().reduce(0D, Double::sum)/values.size();
     }
 
     public Credibility averageCredibility(Collection<Credibility> credibilityLabels) {
@@ -42,5 +114,11 @@ public class PolicyEngineCallback implements Callback {
 
     public void social_translucence() {
         //todo: implement functionality
+    }
+
+    private static class Module {
+        Double conf;
+        Double cred;
+        Double weight;
     }
 }
