@@ -3,7 +3,7 @@
     "name": "not_verifiable_post_content_analysis",
     "description": "checks the post and flags as not verifiable",
     "priority": 1,
-    "condition": "contentanalysis_confidence < 0.6",
+    "condition": "contentanalysis_confidence < 0.6 && (contentanalysis_credibility == 0.0 && contentanalysis_confidence == 0.0)" ,
     "actions": [
       "callback.getModuleCredibility.put(\"content_analysis\", Credibility.not_verifiable);"
     ]
