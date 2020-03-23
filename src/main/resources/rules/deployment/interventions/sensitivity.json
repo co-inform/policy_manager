@@ -1,0 +1,41 @@
+[
+  {
+    "name": "no censorship",
+    "description": "if sensitivity value from the settings is zero, does not blur anything",
+    "priority": 11,
+    "condition": "sensitivity == 0.0",
+    "actions": [
+    ]
+  },
+  {
+    "name": "default censorship",
+    "description": "if sensitivity value between 0-33, blurs only not credible",
+    "priority": 11,
+    "condition": "sensitivity > 0.0 && sensitivity < 0.33 && callback.getFinalCredibility() == Credibility.not_credible",
+    "actions": [
+      "callback.blur()"
+    ]
+  },
+  {
+    "name": "default censorship",
+    "description": "if sensitivity value between 0-33, blurs only not credible",
+    "priority": 11,
+    "condition": "sensitivity > 0.0 && sensitivity < 0.33 && callback.getFinalCredibility() == Credibility.not_credible && "callback.getFinalCredibility() == Credibility.credible_uncertain",
+    "actions": [
+      "callback.blur()"
+  ]
+  },
+  {
+    "name": "default censorship",
+    "description": "if sensitivity value between 0-33, blurs only not credible",
+    "priority": 11,
+    "condition": "sensitivity > 0.0 && sensitivity < 0.33 && callback.getFinalCredibility() == Credibility.not_credible && "callback.getFinalCredibility() == Credibility.credible_uncertain" && "callback.getFinalCredibility() == Credibility.mostly_credible",
+    "actions": [
+      "callback.blur()"
+    ]
+  }
+
+
+
+
+]
