@@ -1,11 +1,29 @@
 [
   {
-    "name": "aggregate_module_evaluations",
+    "name": "aggregate_module_evaluation_default",
     "description": "Takes the results from the module responses and set a final credibility",
     "priority": 10,
-    "condition": "true",
+    "condition": "aggregateMethod.equals(\"default\")",
     "actions": [
       "callback.setFinalCredibility(callback.averageCredibility(callback.getModuleCredibility().values()));"
+    ]
+  },
+  {
+    "name": "aggregate_module_evaluations_max",
+    "description": "Takes the results from the module responses and set a final credibility",
+    "priority": 11,
+    "condition": "aggregateMethod.equals(\"max\")",
+    "actions": [
+      "callback.setFinalCredibility(callback.maxCredibility(callback.getModuleCredibility().values()));"
+    ]
+  },
+  {
+    "name": "aggregate_module_evaluation_weighted",
+    "description": "Takes the results from the module responses and set a final credibility",
+    "priority": 12,
+    "condition": "aggregateMethod.equals(\"weighted\")",
+    "actions": [
+      "callback.setFinalCredibility(callback.weightedCredibility(callback.getModuleCredibility().values()));"
     ]
   }
 ]
