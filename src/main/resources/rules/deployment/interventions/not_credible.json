@@ -1,0 +1,24 @@
+[
+  {
+    "name": "not credible with blurring",
+    "description": "send not credible message",
+    "priority": 11,
+    "condition": "callback.getFinalCredibility() == Credibility.not_credible",
+    "actions": [
+      "callback.read_msg('templates/not_credible_msg')",
+      "callback.blur()"
+
+    ]
+  },
+  {
+    "name": "not credible with awaiting",
+    "description": "send not credible message",
+    "priority": 12,
+    "condition": "callback.getFinalCredibility() == Credibility.not_credible",
+    "actions": [
+      "callback.read_msg('templates/not_credible_msg')",
+      "callback.await()"
+    ]
+  }
+
+]

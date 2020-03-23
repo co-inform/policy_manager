@@ -1,8 +1,12 @@
-{
-  "name": "credible_social_translucence",
-  "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers social translucence",
-  "condition": "callback.getFinalCredibility() == Credibility.credible",
-  "actions": [
-    "callback.social_translucence();"
-  ]
-}
+[
+  {
+    "name": "credible action",
+    "description": "send credible message",
+    "priority": 11,
+    "condition": "callback.getFinalCredibility() == Credibility.credible",
+    "actions": [
+      "callback.read_msg('templates/credible_msg')"
+    ]
+  }
+]
+

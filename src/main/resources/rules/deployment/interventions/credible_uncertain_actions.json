@@ -1,17 +1,27 @@
-[{
-  "name": "uncertain_credible_inject",
-  "description": "the system acknowledges the user for posting uncertain tweets (explainability) and tiggers inject",
-  "condition": "callback.getFinalCredibility() == Credibility.credible_uncertain",
-  "actions": [
-    //TO-DO
+[
+  {
+    "name": "uncertain credibility",
+    "description": "send not credible message",
+    "priority": 11,
+    "condition": "callback.getFinalCredibility() == Credibility.uncertain_credible",
+    "actions": [
+      "callback.read_msg('templates/uncertain_credibility_msg')",
+      "callback.blur()"
+
+    ]
+  },
+  [
+    {
+      "name": "uncertain credibility",
+      "description": "send uncertain credibility message",
+      "priority": 12,
+      "condition": "callback.getFinalCredibility() == Credibility.uncertain_credible",
+      "actions": [
+        "callback.read_msg('templates/uncertain_credibility_msg')",
+        "callback.await()"
+
+      ]
+    }
   ]
-},
-{
-  "name": "uncertain_credible_inoculate",
-  "description": "the system acknowledges the user for posting uncertain credible tweets (explainability) and tiggers inoculate",
-  "condition": "callback.getFinalCredibility() == Credibility.credible_uncertain",
-  "actions": [
-    //TO-DO
-  ]
-}
+
 ]

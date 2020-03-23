@@ -1,8 +1,11 @@
-{
-  "name": "mostly_credible_inject",
-  "description": "the system acknowledges the user for posting credible tweets (explainability) and tiggers social translucence",
-  "condition": "callback.getFinalCredibility() == Credibility.mostly_credible",
-  "actions": [
-    //TO-DO
-  ]
-}
+[
+  {
+    "name": "mostly credible action",
+    "description": "send not credible message",
+    "priority": 11,
+    "condition": "callback.getFinalCredibility() == Credibility.mostly_credible",
+    "actions": [
+      "callback.read_msg('templates/mostly_credible_msg')"
+    ]
+  }
+]

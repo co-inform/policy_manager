@@ -1,0 +1,11 @@
+[
+  {
+    "name": "not verifiable action",
+    "description": "send not verifiable message",
+    "priority": 11,
+    "condition": "callback.getFinalCredibility() == Credibility.not_verifiable",
+    "actions": [
+      "callback.read_msg('templates/not_verifiable_msg')"
+    ]
+  }
+]
