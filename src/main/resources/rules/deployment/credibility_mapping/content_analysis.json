@@ -43,5 +43,16 @@
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_not_credible);"
     ]
+  },
+  {
+    "name": "set_values",
+    "description": "set the Module cred/conf values",
+    "priority": 7,
+    "condition": "true",
+    "actions": [
+      "callback.setConfidence(\"content_analysis\", contentanalysis_confidence);",
+      "callback.setCredibility(\"content_analysis\", contentanalysis_credibility);"
+    ]
   }
+
 ]

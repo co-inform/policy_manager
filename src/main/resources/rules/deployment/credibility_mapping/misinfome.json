@@ -43,5 +43,15 @@
     "actions": [
       "callback.getModuleCredibility().put(\"misinfome\", Credibility.mostly_not_credible);"
     ]
+  },
+  {
+    "name": "set_values",
+    "description": "set the Module cred/conf values",
+    "priority": 7,
+    "condition": "true",
+    "actions": [
+      "callback.setConfidence(\"misinfome\", misinfome_credibility_confidence);",
+      "callback.setCredibility(\"misinfome\", misinfome_credibility_value);"
+    ]
   }
 ]
