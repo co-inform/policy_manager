@@ -78,6 +78,17 @@ public class PolicyEngineCallback implements Callback {
         return moduleMap.keySet();
     }
 
+    public Map<String, Map<String, Double>> getValues() {
+        Map<String, Map<String, Double>> valueMap = new HashMap<String, Map<String, Double>>();
+        moduleMap.forEach((module, values) -> {
+            Map<String, Double> map = new HashMap<String, Double>();
+            map.put("credibility", values.cred);
+            map.put("confidence", values.conf);
+            valueMap.put(module, map);
+        });
+        return valueMap;
+    }
+
     public Collection<Double> getConfidenceList() {
         return moduleMap.values().stream().map(module -> module.conf).collect(Collectors.toList());
     }
