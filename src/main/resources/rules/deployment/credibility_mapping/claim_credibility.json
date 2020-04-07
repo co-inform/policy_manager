@@ -43,5 +43,15 @@
     "actions": [
       "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_verifiable);"
     ]
+  },
+  {
+    "name": "set_values",
+    "description": "set the Module cred/conf values",
+    "priority": 7,
+    "condition": "true",
+    "actions": [
+      "callback.setConfidence(\"claim_similarity\", claimcredibility_tweet_claim_credibility_0_confidence);",
+      "callback.setCredibility(\"claim_similarity\", claimcredibility_tweet_claim_credibility_0_credibility);"
+    ]
   }
 ]
