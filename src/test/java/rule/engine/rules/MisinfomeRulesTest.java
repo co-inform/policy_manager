@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import model.Credibility;
 import model.ModelProperties;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -90,7 +91,8 @@ public class MisinfomeRulesTest {
     /**
      * Make sure that the rule set is able to assign the credible uncertain post label.
      */
-/**    @Test
+    @Ignore
+    @Test
     public void testCredibleUncertainPost() {
         Map<String, Object> mockChanges = new LinkedHashMap<>();
 
@@ -103,7 +105,7 @@ public class MisinfomeRulesTest {
         ruleEngine.check(modelProperties, callback, moduleSet);
         assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.credibility_uncertain);
     }
-*/
+
     /**
      * Make sure that the rule set is able to assign the mostly credible post label.
      */
