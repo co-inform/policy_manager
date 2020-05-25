@@ -21,7 +21,7 @@
     "name": "mostly_not_credible",
     "description": "checks the post and flags as mostly not credible",
     "priority": 3,
-    "condition": "claimcredibility_tweet_claim_credibility_0_credibility > -0.25 && claimcredibility_tweet_claim_credibility_0_credibility < -0.5 && claimcredibility_tweet_claim_credibility_0_confidence >= 0.7",
+    "condition": "claimcredibility_tweet_claim_credibility_0_credibility >= -0.5 && claimcredibility_tweet_claim_credibility_0_credibility < -0.25 && claimcredibility_tweet_claim_credibility_0_confidence >= 0.7",
     "actions": [
       "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.mostly_not_credible);"
     ]
@@ -30,7 +30,7 @@
     "name": "not_credible",
     "description": "checks the post and flags as not credible",
     "priority": 2,
-    "condition": "claimcredibility_tweet_claim_credibility_0_credibility > -0.5 && claimcredibility_tweet_claim_credibility_0_confidence >= 0.7",
+    "condition": "claimcredibility_tweet_claim_credibility_0_credibility <= -0.5 && claimcredibility_tweet_claim_credibility_0_confidence >= 0.7",
     "actions": [
       "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.not_credible);"
     ]
