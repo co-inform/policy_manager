@@ -12,7 +12,7 @@
     "name": "not-credible_post_content_analysis",
     "description": "checks the post and flags as not credible",
     "priority": 2,
-    "condition": "contentanalysis_credibility <= -0.6 && contentanalysis_confidence > 0.6",
+    "condition": "contentanalysis_credibility < -0.5 && contentanalysis_confidence >= 0.6",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.not_credible);"
     ]
@@ -21,7 +21,7 @@
     "name": "mostly_credible_post_content_analysis",
     "description": "checks the post and flags as mostly credible",
     "priority": 4,
-    "condition": "contentanalysis_credibility < 0.6 && contentanalysis_credibility >= 0.3 && contentanalysis_confidence > 0.6",
+    "condition": "contentanalysis_credibility < 0.5 && contentanalysis_credibility >= 0.25 && contentanalysis_confidence >= 0.6",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_credible);"
     ]
@@ -30,7 +30,7 @@
     "name": "credible_post_content_analysis",
     "description": "checks the post and flags as credible",
     "priority": 5,
-    "condition": "contentanalysis_credibility >= 0.6 &&  contentanalysis_confidence > 0.6",
+    "condition": "contentanalysis_credibility >= 0.5 &&  contentanalysis_confidence >= 0.6",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible);"
     ]
@@ -39,7 +39,7 @@
     "name": "mostly_not_credible_post_content_analysis",
     "description": "checks the post and flags as credible",
     "priority": 6,
-    "condition": "contentanalysis_credibility >= -0.6 && contentanalysis_credibility < -0.3 && contentanalysis_confidence > 0.6",
+    "condition": "contentanalysis_credibility < 0.25 && contentanalysis_credibility >= -0.5 && contentanalysis_confidence >= 0.6",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_not_credible);"
     ]
