@@ -1,0 +1,11 @@
+[
+  {
+    "name": "claim detection",
+    "description": "checks whether the post having statement",
+    "priority": 1,
+    "condition": "is_claim == True",
+    "actions": [
+  "callback.setFinalCredibility(callback.setClaim(True);"
+    ]
+  }
+]
