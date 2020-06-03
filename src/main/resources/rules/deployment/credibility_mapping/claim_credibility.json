@@ -18,12 +18,12 @@
     ]
   },
   {
-    "name": "mostly_not_credible",
+    "name": "credible_uncertain",
     "description": "checks the post and flags as mostly not credible",
     "priority": 3,
     "condition": "claimcredibility_tweet_claim_credibility_0_credibility < 0.25  && claimcredibility_tweet_claim_credibility_0_credibility >= -0.5 && claimcredibility_tweet_claim_credibility_0_confidence >= 0.6",
     "actions": [
-      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.mostly_not_credible);"
+      "callback.getModuleCredibility().put(\"claim_similarity\", Credibility.credible_uncertain);"
     ]
   },
   {
