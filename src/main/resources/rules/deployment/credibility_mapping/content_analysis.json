@@ -41,7 +41,7 @@
     "priority": 6,
     "condition": "contentanalysis_credibility < 0.25 && contentanalysis_credibility >= -0.5 && contentanalysis_confidence >= 0.6",
     "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible_uncertain);"
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credibility_uncertain);"
     ]
   },
   {

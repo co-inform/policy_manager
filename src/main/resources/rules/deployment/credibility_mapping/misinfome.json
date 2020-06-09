@@ -41,7 +41,7 @@
     "priority": 5,
     "condition": "misinfome_credibility_value < 0.25 && misinfome_credibility_value >= -0.5 && misinfome_credibility_confidence >= 0.5",
     "actions": [
-      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credible_uncertain);"
+      "callback.getModuleCredibility().put(\"misinfome\", Credibility.credibility_uncertain);"
     ]
   },
   {

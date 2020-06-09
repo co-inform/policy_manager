@@ -3,7 +3,7 @@ package model;
 public enum Credibility {
     not_verifiable,
     not_credible,
-    credible_uncertain,
+    credibility_uncertain,
     mostly_credible,
     credible;
 }
