@@ -103,7 +103,7 @@ public class MisinfomeRulesTest {
         PolicyEngineCallback callback = new PolicyEngineCallback();
         ModelProperties modelProperties = new ModelProperties(mockResponse(flattenedModuleResponse, mockChanges));
         ruleEngine.check(modelProperties, callback, moduleSet);
-        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.credibility_uncertain);
+        assertThat(callback.getModuleCredibility().get(module)).isNotNull().isEqualTo(Credibility.credible_uncertain);
     }
 
     /**
