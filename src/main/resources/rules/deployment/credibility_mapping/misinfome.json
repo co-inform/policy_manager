@@ -53,5 +53,14 @@
       "callback.setConfidence(\"misinfome\", misinfome_credibility_confidence);",
       "callback.setCredibility(\"misinfome\", misinfome_credibility_value);"
     ]
+  },
+  {
+    "name": "set_explanation",
+    "description": "Set the Module explanation",
+    "priority": 7,
+    "condition": "true",
+    "actions": [
+      "callback.setExplanation(\"misinfome\", misinfome_ratingexplanation, misinfome_ratingexplanationformat);"
+    ]
   }
 ]

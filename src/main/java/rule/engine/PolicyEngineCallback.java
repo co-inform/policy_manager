@@ -17,12 +17,14 @@ public class PolicyEngineCallback implements Callback {
     @Setter
     @Getter
     private Credibility finalCredibility;
-
     private Map<String, Module> moduleMap;
+    @Getter
+    private Map<String, Explanation> moduleExplanation;
 
     public PolicyEngineCallback() {
         moduleCredibility = new HashMap<>();
         moduleMap = new HashMap<>();
+        moduleExplanation = new HashMap<>();
         this.finalCredibility = Credibility.not_verifiable;
     }
 
@@ -78,6 +80,31 @@ public class PolicyEngineCallback implements Callback {
         return moduleMap.keySet();
     }
 
+    public void setExplanation(String module, String explanation, String explanationFormat) {
+        Explanation exp = moduleExplanation.get(module);
+        if (exp == null) {
+            exp = new Explanation();
+            moduleExplanation.put(module, exp);
+        }
+        exp.explanation = explanation;
+        exp.explanation_format = explanationFormat;
+    }
+
+    public Explanation getExplanation(String module) {
+        return moduleExplanation.get(module);
+    }
+
+    public Map<String, Map<String, String>> getExplanations() {
+        Map<String, Map<String, String>> explanationMap = new HashMap<>();
+        moduleExplanation.forEach((module, explanation) -> {
+            Map<String, String> map = new HashMap<>();
+            map.put("rating_explanation_format", explanation.explanation_format);
+            map.put("rating_explanation", explanation.explanation);
+            explanationMap.put(module, map);
+        });
+        return explanationMap;
+    }
+
     public Map<String, Map<String, Double>> getValues() {
         Map<String, Map<String, Double>> valueMap = new HashMap<String, Map<String, Double>>();
         moduleMap.forEach((module, values) -> {
@@ -88,6 +115,7 @@ public class PolicyEngineCallback implements Callback {
         });
         return valueMap;
     }
+
 
     public Collection<Double> getConfidenceList() {
         return moduleMap.values().stream().map(module -> module.conf).collect(Collectors.toList());
@@ -126,5 +154,10 @@ public class PolicyEngineCallback implements Callback {
         Double conf;
         Double cred;
         Double weight;
+    }
+
+    private static class Explanation {
+        String explanation;
+        String explanation_format;
     }
 }

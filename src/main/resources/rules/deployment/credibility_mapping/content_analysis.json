@@ -53,6 +53,15 @@
       "callback.setConfidence(\"content_analysis\", contentanalysis_confidence);",
       "callback.setCredibility(\"content_analysis\", contentanalysis_credibility);"
     ]
+  },
+  {
+    "name": "set_explanation",
+    "description": "Set the Module explanation",
+    "priority": 7,
+    "condition": "true",
+    "actions": [
+      "callback.setExplanation(\"content_analysis\", contentanalysis_ratingexplanation, contentanalysis_ratingexplanationformat);"
+    ]
   }
 
 ]

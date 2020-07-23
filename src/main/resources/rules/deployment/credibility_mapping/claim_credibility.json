@@ -53,5 +53,14 @@
       "callback.setConfidence(\"claim_similarity\", claimcredibility_tweet_claim_credibility_0_confidence);",
       "callback.setCredibility(\"claim_similarity\", claimcredibility_tweet_claim_credibility_0_credibility);"
     ]
+  },
+  {
+    "name": "set_explanation",
+    "description": "Set the Module explanation",
+    "priority": 7,
+    "condition": "true",
+    "actions": [
+      "callback.setExplanation(\"claim_similarity\", claimcredibility_tweet_claim_credibility_0_ratingexplanation, claimcredibility_tweet_claim_credibility_0_ratingexplanationformat);"
+    ]
   }
 ]
