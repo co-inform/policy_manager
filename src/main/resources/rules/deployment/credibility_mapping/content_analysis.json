@@ -3,7 +3,7 @@
     "name": "not_verifiable_post_content_analysis",
     "description": "checks the post and flags as not verifiable",
     "priority": 1,
-    "condition": "contentanalysis_confidence < 0.5",
+    "condition": "contentanalysis_confidence <= 0.5",
     "actions": [
       "callback.getModuleCredibility.put(\"content_analysis\", Credibility.not_verifiable);"
     ]
@@ -12,34 +12,34 @@
     "name": "not-credible_post_content_analysis",
     "description": "checks the post and flags as not credible",
     "priority": 2,
-    "condition": "(contentanalysis_credibility <= -0.5 && contentanalysis_confidence >= 0.6) || (contentanalysis_credibility <= -0.8 && contentanalysis_confidence >= 0.5)"  ,
+    "condition": "(contentanalysis_credibility <= -0.5 && contentanalysis_confidence >= 0.6) || (contentanalysis_credibility <= -0.7 && contentanalysis_confidence > 0.5)"  ,
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.not_credible);"
+    ]
+  },
+  {
+    "name": "credible_post_content_analysis",
+    "description": "checks the post and flags as credible",
+    "priority": 3,
+    "condition": "(contentanalysis_credibility >= 0.5 &&  contentanalysis_confidence >= 0.6) || (contentanalysis_credibility >= 0.7 &&  contentanalysis_confidence > 0.5)",
+    "actions": [
+      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible);"
     ]
   },
   {
     "name": "mostly_credible_post_content_analysis",
     "description": "checks the post and flags as mostly credible",
     "priority": 4,
-    "condition": "(contentanalysis_credibility < 0.5 && contentanalysis_credibility >= 0.1 && contentanalysis_confidence >= 0.6) || (contentanalysis_credibility < 0.8 && contentanalysis_credibility >= 0.2 && contentanalysis_confidence >= 0.5)",
+    "condition": "(contentanalysis_credibility < 0.5 && contentanalysis_credibility >= 0 && contentanalysis_confidence >= 0.6) || (contentanalysis_credibility < 0.7 && contentanalysis_credibility >= 0.2 && contentanalysis_confidence > 0.5)",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.mostly_credible);"
     ]
   },
   {
-    "name": "credible_post_content_analysis",
-    "description": "checks the post and flags as credible",
-    "priority": 5,
-    "condition": "(contentanalysis_credibility >= 0.5 &&  contentanalysis_confidence >= 0.6) || (contentanalysis_credibility >= 0.8 &&  contentanalysis_confidence >= 0.5)",
-    "actions": [
-      "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credible);"
-    ]
-  },
-    {
     "name": "credible_uncertain_post_content_analysis",
     "description": "checks the post and flags as credible",
-    "priority": 6,
-    "condition": "(contentanalysis_credibility < 0.1 && contentanalysis_credibility > -0.5 && contentanalysis_confidence >= 0.6) || (contentanalysis_credibility < 0.2 && contentanalysis_credibility > -0.8 && contentanalysis_confidence >= 0.5)",
+    "priority": 5,
+    "condition": "(contentanalysis_credibility < 0 && contentanalysis_credibility > -0.5 && contentanalysis_confidence >= 0.6) || (contentanalysis_credibility < 0.2 && contentanalysis_credibility > -0.7 && contentanalysis_confidence > 0.5)",
     "actions": [
       "callback.getModuleCredibility().put(\"content_analysis\", Credibility.credibility_uncertain);"
     ]
