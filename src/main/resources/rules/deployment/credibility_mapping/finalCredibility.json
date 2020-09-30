@@ -1,0 +1,53 @@
+[
+  {
+    "name": "credible",
+    "description": "Takes the results from the module responses and set the final credibility flag as credible",
+    "priority": 1,
+    "condition": "(claim_similarity == misinfome == credible) || (claim_similarity == content_analysis == credible) || (misinfome == content_analysis == credible)",
+    "actions": [
+      "callback.setFinalCredibility().put(\"final_credibility\", finalCredibility.credible);"
+    ]
+  },
+
+
+  {
+    "name": "not_credible",
+    "description": "Takes the results from the module responses and set the final credibility flag as not credible",
+    "priority": 2,
+    "condition": "(claim_similarity == misinfome == not_credible) || (claim_similarity == content_analysis == not_credible) || (misinfome == content_analysis == not_credible)",
+    "actions": [
+      "callback.setFinalCredibility().put(\"final_credibility\", finalCredibility.not_credible);"
+    ]
+  },
+
+  {
+    "name": "mostly_credible",
+    "description": "Takes the results from the module responses and set the final credibility flag as mostly credible",
+    "priority": 3,
+    "condition": "(claim_similarity == misinfome == mostly_credible) || (claim_similarity == content_analysis == mostly_credible) || (misinfome == content_analysis == mostly_credible) || (claim_similarity == mostly_credible && misinfome == credible) || (claim_similarity == credible && misinfome == mostly_credible) || (claim_similarity == mostly_credible && content_analysis == credible) || (claim_similarity == credible && content_analysis == mostly_credible) || (misinfome == mostly_credible && content_analysis == credible) || (misinfome == credible && content_analysis == mostly_credible)",
+    "actions": [
+      "callback.setFinalCredibility().put(\"final_credibility\", finalCredibility.mostly_credible);"
+    ]
+  },
+
+  {
+    "name": "credible_uncertain",
+    "description": "Takes the results from the module responses and set the final credibility flag as credible uncertain",
+    "priority": 4,
+    "condition": "(claim_similarity == misinfome == credible_uncertain) || (claim_similarity == content_analysis == credible_uncertain) || (misinfome == content_analysis == credible_uncertain) || (claim_similarity == credible_uncertain && misinfome == not_credible) || (claim_similarity == not_credible && misinfome == credible_uncertain) || (claim_similarity == credible_uncertain && content_analysis == not_credible) || (claim_similarity == not_credible && content_analysis == credible_uncertain) || (misinfome == credible_uncertain && content_analysis == not_credible) || (misinfome == not_credible && content_analysis == credible_uncertain)",
+    "actions": [
+      "callback.setFinalCredibility().put(\"final_credibility\", finalCredibility.credible_uncertain);"
+    ]
+  },
+
+  {
+    "name": "not_verifiable",
+    "description": "Takes the results from the module responses and set the final credibility flag as not verifiable",
+    "priority": 5,
+    "condition": "else",
+    "actions": [
+      "callback.setFinalCredibility().put(\"final_credibility\", finalCredibility.not_verifiable);"
+    ]
+  },
+
+]
